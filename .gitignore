@@ -2,6 +2,9 @@
 rsconnect/
 /data_raw/AHRF_2018-2019/**
 /code/secrets.R
+Icon*
+county_preparedness_ORIGINAL.zip
+
 ## R things
 # History files
 .Rhistory
@@ -66,4 +69,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-Icon
