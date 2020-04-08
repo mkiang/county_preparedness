@@ -1,0 +1,5 @@
+Diabetes:
+https://gis.cdc.gov/grasp/diabetes/DiabetesAtlas.html#
+
+Hypertension + coronary heart disease
+https://nccd.cdc.gov/DHDSPAtlas/?state=County
