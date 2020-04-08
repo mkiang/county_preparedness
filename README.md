@@ -109,7 +109,9 @@ page](https://github.com/mkiang/county_preparedness/issues).
     ![Twitter](http://i.imgur.com/wWzX9uB.png):
     [@rebeccajk13](https://twitter.com/rebeccajk13))
   - [Ruoran Li](https://scholar.harvard.edu/rli/home)
-    (![Twitter](http://i.imgur.com/wWzX9uB.png):
+    (![Github](http://i.imgur.com/9I6NRUm.png):
+    [ruoranepi](https://github.com/ruoranepi) |
+    ![Twitter](http://i.imgur.com/wWzX9uB.png):
     [@ruoranepi](https://twitter.com/ruoranepi))
   - [Jarvis
     Chen](https://www.dfhcc.harvard.edu/insider/member-detail/member/jarvis-t-chen-scd/)

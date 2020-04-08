@@ -56,12 +56,14 @@ Please report issues via email or the [issues page](https://github.com/mkiang/co
 
 - Taylor Chin (![Twitter](http://i.imgur.com/wWzX9uB.png): [\@taylorchin](https://twitter.com/taylorchin))
 - Rebecca Kahn (![Github](http://i.imgur.com/9I6NRUm.png): [rek160](https://github.com/rek160) | ![Twitter](http://i.imgur.com/wWzX9uB.png): [\@rebeccajk13](https://twitter.com/rebeccajk13))
-- [Ruoran Li](https://scholar.harvard.edu/rli/home) (![Twitter](http://i.imgur.com/wWzX9uB.png): [\@ruoranepi](https://twitter.com/ruoranepi))
+- [Ruoran Li](https://scholar.harvard.edu/rli/home) (![Github](http://i.imgur.com/9I6NRUm.png): [ruoranepi](https://github.com/ruoranepi) | ![Twitter](http://i.imgur.com/wWzX9uB.png): [\@ruoranepi](https://twitter.com/ruoranepi))
 - [Jarvis Chen](https://www.dfhcc.harvard.edu/insider/member-detail/member/jarvis-t-chen-scd/) 
 - [Nancy Krieger](https://www.hsph.harvard.edu/nancy-krieger/) 
 - [Caroline Buckee](https://www.hsph.harvard.edu/magazine/magazine_article/the-uses-of-outrage/) (![Twitter](http://i.imgur.com/wWzX9uB.png): [\@Caroline_OF_B](https://twitter.com/Caroline_OF_B))
 - [Satchit Balsari](https://fxb.harvard.edu/people/satchit-balsari/) (![Twitter](http://i.imgur.com/wWzX9uB.png): [\@Satchit_Balsari](https://twitter.com/Satchit_Balsari))
 - [Mathew Kiang](https://mathewkiang.com) (![Github](http://i.imgur.com/9I6NRUm.png): [mkiang](https://github.com/mkiang) | ![Twitter](http://i.imgur.com/wWzX9uB.png): [\@mathewkiang](https://twitter.com/mathewkiang))
+
+
 
 ## Session info
 ```
