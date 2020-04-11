@@ -20,9 +20,9 @@ knitr::include_graphics("./plots/fig04_bivariate_nonwhite_premature_mort.jpg")
 
 ## Introduction 
 
-This is reproducible code for our paper, [*U.S. county-level characteristics to inform equitable COVID-19 response*](TODO), which uses public-access county-level data to highlight charateristics of COVID-19 vulneratbility. We use bivariate maps to show both the convergent and divergent spatial patterning of these risk factors. The full citation is:
+This is reproducible code for our pre-print, [*U.S. county-level characteristics to inform equitable COVID-19 response*](https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1), which uses public-access county-level data to highlight charateristics of COVID-19 vulneratbility. We use bivariate maps to show both the convergent and divergent spatial patterning of these risk factors. The full citation is:
 
-> Chin T, Kanh R, Li R, Chen JT, Krieger N, Buckee CO, Balsari S, and Kiang MV. U.S. county-level characteristics to inform equitable COVID-19 response. TODO. doi: TODO.
+> Chin T, Kanh R, Li R, Chen JT, Krieger N, Buckee CO, Balsari S, and Kiang MV. U.S. county-level characteristics to inform equitable COVID-19 response. Print on medRxiv 2020.04.08.20058248. doi: [10.1101/2020.04.08.20058248](https://doi.org/10.1101/2020.04.08.20058248)
 
 An interactive companion app for our paper is available at [https://mkiang.shinyapps.io/county_risks/](https://mkiang.shinyapps.io/county_risks/). 
 
