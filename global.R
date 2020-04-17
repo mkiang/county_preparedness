@@ -28,7 +28,7 @@ more_info <- list(
 page_title <- "U.S. county-level characteristics to inform equitable COVID-19 response"
 page_subtitle   <- "Using this app"
 page_desc  <- HTML(
-    "This is a companion app for <a href='https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1'>our paper</a>. Select two covariates of interest from the dropdown boxes to the right. For each covariate, select thresholds for the moderate category. Skewed covariates can be transformed using the Axis Transformation option. <p><p>The bivariate risk map shows which counties fall into each category defined by the legend. The scatterplot shows the relationship based on the raw data with the univariate distribution shown on the amrgins.<p><p>Some measures are sensitive to small population sizes; therefore, we provide a filter to remove counties based on population size below."
+    "This is a companion app for <a href='https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1'>our paper</a>. Select two covariates of interest from the dropdown boxes to the right. For each covariate, select thresholds for the moderate category. Skewed covariates can be transformed using the Axis Transformation option. <p><p>The bivariate risk map shows which counties fall into each category defined by the legend. The scatterplot shows the relationship based on the raw data with the univariate distribution shown on the margins.<p><p>Some measures are sensitive to small population sizes; therefore, we provide a filter to remove counties based on population size below."
 )
 
 ## Helper functions ----
