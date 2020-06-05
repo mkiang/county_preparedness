@@ -133,7 +133,7 @@ ahrf_subset <- ahrf_subset %>%
 ## ACS variables ----
 acs_vars <- acs_vars %>%
     slice(-1) %>%
-    select(dp02_to_keep) %>%
+    select(all_of(dp02_to_keep)) %>%
     mutate(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid))) %>%
     select(-geoid) %>%
     filter(avg_hh_size != "null",

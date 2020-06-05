@@ -69,6 +69,25 @@ labelled::var_label(ahrf_county) <- ahrf_county_layout %>%
     tibble::deframe() %>%
     as.list()
 
+## Extract scaling factor ----
+ahrf_county_layout <- ahrf_county_layout %>%
+    mutate(scaling_factor = stringr::str_extract(characteristics, "\\(.[0-1]{1,2}\\)")) %>%
+    mutate(scaling_factor = as.numeric(gsub("\\(|\\)", "", scaling_factor)))
+
+## Rescale columns ----
+for (s in unique(ahrf_county_layout$scaling_factor)) {
+    if (!is.na(s)) {
+        ahrf_county <- ahrf_county %>%
+            mutate_at(vars(
+                ahrf_county_layout %>%
+                    filter(scaling_factor == s) %>%
+                    pull(field)
+            ),
+            function(x) as.numeric(x) * s)
+    }
+}
+
+## Save ----
 saveRDS(ahrf_county_layout,
         here::here(WORKING_DATA, "ahrf_2018_layout.RDS"))
 saveRDS(ahrf_county,
