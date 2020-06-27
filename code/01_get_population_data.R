@@ -1,5 +1,5 @@
 ## 01_get_population_data.R ----
-## 
+##
 ## Download and reshape the 2018 NCHS bridged race population file. Will also
 ## incorporate PR population and calculate non-Hispanic and non-White pop.
 
@@ -56,35 +56,37 @@ pop_df <- orig_pop_df %>%
     dplyr::ungroup()
 
 ## Clean up and reshape PR data ----
-pr_pop_df <- read_csv(here(
+pr_pop_df <- readr::read_csv(here::here(
     RAW_DATA,
     "PR_PEP_2018_PEPAGESEX",
     "PEP_2018_PEPAGESEX_with_ann.csv"
 )) %>%
-    slice(2:n()) %>%
+    dplyr::slice(2:dplyr::n()) %>%
     janitor::clean_names()
 
 pr_sub <- pr_pop_df %>%
-    select(fips = geo_id2,
-           one_of(c(
-               sprintf("est72018sex0_age%sto%s",
-                       seq(0, 80, 5),
-                       seq(4, 84, 5)),
-               "est72018sex0_age85plus"
-           )))
+    dplyr::select(fips = geo_id2,
+                  dplyr::one_of(c(
+                      sprintf("est72018sex0_age%sto%s",
+                              seq(0, 80, 5),
+                              seq(4, 84, 5)),
+                      "est72018sex0_age85plus"
+                  )))
 
 pr_sub <- pr_sub %>%
-    gather(age_group,
-           estimate,
-           est72018sex0_age0to4:est72018sex0_age85plus) %>%
-    mutate(age_group = gsub("est72018sex0_age|to[0-9]{1,2}\\>|plus\\>", "", age_group)) %>%
-    transmute(fips = fips,
-              age = as.numeric(age_group),
-              pop = as.numeric(estimate)) %>%
-    arrange(fips, age)
+    tidyr::gather(age_group,
+                  estimate,
+                  est72018sex0_age0to4:est72018sex0_age85plus) %>%
+    dplyr::mutate(age_group = gsub("est72018sex0_age|to[0-9]{1,2}\\>|plus\\>", 
+                                   "", 
+                                   age_group)) %>%
+    dplyr::transmute(fips = fips,
+                     age = as.numeric(age_group),
+                     pop = as.numeric(estimate)) %>%
+    dplyr::arrange(fips, age)
 
-pop_df <- bind_rows(pop_df,
-                    pr_sub)
+pop_df <- dplyr::bind_rows(pop_df,
+                           pr_sub)
 
 readr::write_csv(pop_df, here::here(WORKING_DATA, "population_by_age.csv"))
 
@@ -104,11 +106,11 @@ nhw_df <- orig_pop_df %>%
     dplyr::ungroup()
 
 non_white_perc <- pop_df %>%
-    left_join(nhw_df) %>%
-    group_by(fips) %>%
-    summarize(pop = sum(pop),
-              nhw_pop = sum(nhw_pop)) %>%
-    transmute(
+    dplyr::left_join(nhw_df) %>%
+    dplyr::group_by(fips) %>%
+    dplyr::summarize(pop = sum(pop),
+                     nhw_pop = sum(nhw_pop)) %>%
+    dplyr::transmute(
         fips = fips,
         p_nonwhite = (pop - nhw_pop) / pop * 100,
         p_white = nhw_pop / pop * 100

@@ -159,7 +159,7 @@ create_bivariate_df <- function(plotting_df,
         }, y_high, y_low)
     )
     
-    result_df$var_x <- NA
+    result_df$var_x <- NA_character_
     result_df[grepl("mid", result_df[[rlang::sym(new_x_var)]]), "var_x"] <-
         "mid_x"
     
@@ -176,7 +176,7 @@ create_bivariate_df <- function(plotting_df,
     }
     
     
-    result_df$var_y <- NA
+    result_df$var_y <- NA_character_
     result_df[grepl("mid", result_df[[rlang::sym(new_y_var)]]), "var_y"] <-
         "mid_y"
     
@@ -204,35 +204,7 @@ gen_hotspots_legend <- function(rev_x = FALSE, rev_y = FALSE) {
             ggplot2::aes(x = var_x, y = var_y, fill = color_hex)
         ) +
         ggplot2::geom_tile(color = "white") +
-        ggplot2::scale_fill_identity(na.value = "grey50") +
-        # scale_x_discrete(
-        #     "x_label",
-        #     expand = c(0.05, 0),
-        #     labels = c(
-        #         sprintf("Low: 0-%0.1f",
-        #                 mort_mid_bin[1]),
-        #         sprintf(
-        #             "Medium: %0.1f-%0.1f",
-        #             mort_mid_bin[1],
-        #             mort_mid_bin[2]
-        #         ),
-    #         sprintf("High: >%0.1f",
-    #                 mort_mid_bin[2])
-    #     )
-    # ) +
-    # scale_y_discrete(
-    #     "APC (%)",
-    #     expand = c(0.05, 0),
-    #     labels = c(
-    #         sprintf("Slow: 0-%i",
-    #                 apc_mid_bin[1]),
-    #         sprintf("Moderate: %i-%i",
-    #                 apc_mid_bin[1],
-    #                 apc_mid_bin[2]),
-    #         sprintf("Rapid: >%i",
-    #                 apc_mid_bin[2])
-    #     )
-    # ) +
+        ggplot2::scale_fill_identity(na.value = "grey50") + 
     mk_nytimes(
         panel.grid.major = ggplot2::element_blank(),
         axis.text = ggplot2::element_text(size = 11),
@@ -287,7 +259,8 @@ plot_bivariate <- function(bivariate_df) {
             size = .3,
             fill = NA
         ) +
-        ggplot2::scale_fill_identity()
+        ggplot2::scale_fill_identity() + 
+        theme(plot.margin = unit(c(0, 0, 0, 0), "cm"))
 }
 
 mega_plot_bivariate <-
@@ -337,7 +310,8 @@ mega_plot_bivariate <-
                                       labels = x_labels) +
             ggplot2::scale_y_discrete(y_label,
                                       expand = c(0.05, 0),
-                                      labels = y_labels)
+                                      labels = y_labels) + 
+            theme(plot.margin = unit(c(0, 0, 0, 0), "cm"))
         
         discrete_df <- create_bivariate_df(
             plotting_df,
@@ -365,13 +339,13 @@ mega_plot_bivariate <-
             layout <- "
             ##BBBBBB
             ##BBBBBB
-            ##BBBBBB
             AABBBBBB
+            ##BBBBBB
             ##BBBBBB
         "
             p3 <- p1 + p2 + patchwork::plot_layout(design = layout)
         } else {
-            p3 <- p1 + p2 + patchwork::plot_layout(widths = c(1, 5), ncol = 2)
+            p3 <- p1 + p2 + patchwork::plot_layout(widths = c(3, 10), ncol = 2)
         }
         
         if (return_data) {
@@ -382,7 +356,9 @@ mega_plot_bivariate <-
                     ))) %>%
                     dplyr::count(),
                 data = discrete_df,
-                plot = p3
+                plot = p3,
+                map_only = p2, 
+                legend_only = p1
             )
             x
         } else {
@@ -773,4 +749,8 @@ generate_county_text <- function(plotting_df, county_x, rf1, rf2) {
         HIGHER_COUNTIES2 = HIGHER_COUNTIES2,
         LOWER_COUNTIES2 = LOWER_COUNTIES2
     )
+}
+
+return_rounded_iqr <- function(x) {
+    round(quantile(x, c(.25, .75), na.rm = TRUE, names = FALSE))
 }

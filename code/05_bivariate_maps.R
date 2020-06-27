@@ -1,169 +1,284 @@
+## 05_bivariate_maps.R ----
+##
+## Create the primary figures of the paper
+
 ## Imports ----
 library(tidyverse)
-source("./code/utils.R")
+library(patchwork)
+library(cowplot)
+library(here)
+source(here::here("code", "utils.R"))
 
 ## Data ----
-analytic_df <- read_csv("./data/analytic_data_wide.csv")
+analytic_df <-
+    readr::read_csv(here::here("data", "analytic_data_wide.csv"))
 plotting_df <- process_to_plotting_df(analytic_df)
 
-## Fig 1 -- % poverty by % over 70 years ----
+## Covariates we are going to use:
+##  1. Percent over 70
+##  2. Percent in poverty
+##  3. Percent in group quarters
+##
+##  + 4. how racial/ethnic composition intersects with all of them.
+##
+## Which will result 6 plots.
+##  Figure 1
+##  1. Percent over 70 (x) vs percent in poverty (y)
+##  2. Percent in poverty (x) vs percent in group quarters (y)
+##  3. Percent over 70 (x) vs percent in group quarters (y)
+##
+##  Figure 2
+##  4. Percent non-white (x) vs percent over 70 (y)
+##  5. Percent non-white (x) vs percent in poverty (y)
+##  6. Percent non-white (x) vs percent in group quarters (y)
+##
+## Thresholds will be defined by using (rounded) IQR as medium range.
+
+## 1. Percent over 70 vs percent in poverty ----
 p1 <- mega_plot_bivariate(
     plotting_df = plotting_df,
     return_data = TRUE,
     x_var = p70older,
-    x_high = 15,
-    x_low = 10,
-    x_label = "Population over\n70 years old (%)",
+    x_high = return_rounded_iqr(plotting_df$p70older)[2],
+    x_low = return_rounded_iqr(plotting_df$p70older)[1],
+    x_label = "Population over 70\nyears of age (%)",
     y_var = p_poverty,
-    y_high = 20,
-    y_low = 5,
+    y_high = return_rounded_iqr(plotting_df$p_poverty)[2],
+    y_low = return_rounded_iqr(plotting_df$p_poverty)[1],
     y_label = "Households under\npoverty-line (%)"
 )
-p1$counts %>% filter(color_hex == "#2a1a8a") %>% pull(n)
-plotting_df %>% filter(fips %in% (p1$data %>% filter(color_hex == "#2a1a8a") %>% pull(fips))) %>% pull(n_pop_2018) %>% sum(.)
-ggsave(
-    "./plots/fig01_bivariate_age_poverty.pdf",
-    p1$plot,
-    device = cairo_pdf,
-    width = 10,
-    height = 6,
-    scale = 1.1
-)
-ggsave(
-    "./plots/fig01_bivariate_age_poverty.jpg",
-    p1$plot,
-    dpi = 300,
-    width = 10,
-    height = 6,
-    scale = 1.1
-)
 
-## Fig 2 -- CHD/HTN hospitalizations vs 18-64 uninsured ----
-p1 <- mega_plot_bivariate(
+## 2. Percent in poverty vs percent in group quarters ----
+p2 <- mega_plot_bivariate(
     plotting_df = plotting_df,
     return_data = TRUE,
-    x_var = p_18_64_no_insurance,
-    x_high = 25,
-    x_low = 10,
-    x_label = "Population 18-64\nwithout insurance (%)",
-    y_var = chd_htn_hosp,
-    y_high = 250,
-    y_low = 150,
-    y_label = "CHD and HTN\nhospitalization rate"
-)
-p1$counts %>% filter(color_hex == "#2a1a8a") %>% pull(n)
-plotting_df %>% filter(fips %in% (p1$data %>% filter(color_hex == "#2a1a8a") %>% pull(fips))) %>% pull(n_pop_2018) %>% sum(.)
-ggsave(
-    "./plots/fig02_bivariate_uninsured_comorbidity.pdf",
-    p1$plot,
-    device = cairo_pdf,
-    width = 10,
-    height = 6,
-    scale = 1.1
-)
-ggsave(
-    "./plots/fig02_bivariate_uninsured_comorbidity.jpg",
-    p1$plot,
-    dpi = 300,
-    width = 10,
-    height = 6,
-    scale = 1.1
-)
-
-## Fig 3a -- Group quarters vs ICU beds ----
-p1 <- mega_plot_bivariate(
-    plotting_df = plotting_df,
-    return_data = TRUE,
-    x_var = icu_per_capita,
-    x_high = 25,
-    x_low = 10,
-    x_label = "ICU beds per\n100,000 population",
-    rev_x = TRUE,
+    x_var = p_poverty,
+    x_high = return_rounded_iqr(plotting_df$p_poverty)[2],
+    x_low = return_rounded_iqr(plotting_df$p_poverty)[1],
+    x_label = "Households under\npoverty-line (%)",
     y_var = p_group_quarters,
-    y_high = 5,
-    y_low = 1,
+    y_high = return_rounded_iqr(plotting_df$p_group_quarters)[2],
+    y_low = return_rounded_iqr(plotting_df$p_group_quarters)[1],
     y_label = "Population living\nin group quarters (%)",
 )
-p1$counts %>% filter(color_hex == "#2a1a8a") %>% pull(n)
-plotting_df %>% filter(fips %in% (p1$data %>% filter(color_hex == "#2a1a8a") %>% pull(fips))) %>% pull(n_pop_2018) %>% sum(.)
-ggsave(
-    "./plots/fig03a_bivariate_icu_group_quarters.pdf",
-    p1$plot,
-    device = cairo_pdf,
-    width = 10,
-    height = 6,
-    scale = 1.1
-)
-ggsave(
-    "./plots/fig03a_bivariate_icu_group_quarters.jpg",
-    p1$plot,
-    dpi = 300,
-    width = 10,
-    height = 6,
-    scale = 1.1
-)
 
-## Fig 3b -- Population density vs hospital beds ----
-p1 <- mega_plot_bivariate(
+## 3. Percent over 70 vs percent in group quarters ----
+p3 <- mega_plot_bivariate(
     plotting_df = plotting_df,
     return_data = TRUE,
-    x_var = hosp_per_capita,
-    x_high = 100,
-    x_low = 100,
-    x_label = "Hospital beds per\n100,000 population",
-    rev_x = TRUE,
-    y_var = pop_density,
-    y_high = 100,
-    y_low = 10,
-    y_label = "Population per\nsquare mile",
-)
-p1$counts %>% filter(color_hex == "#2a1a8a") %>% pull(n)
-ggsave(
-    "./plots/fig03b_bivariate_hosp_density.pdf",
-    p1$plot,
-    device = cairo_pdf,
-    width = 10,
-    height = 6,
-    scale = 1.1
-)
-ggsave(
-    "./plots/fig03b_bivariate_hosp_density.jpg",
-    p1$plot,
-    dpi = 300,
-    width = 10,
-    height = 6,
-    scale = 1.1
+    x_var = p70older,
+    x_high = return_rounded_iqr(plotting_df$p70older)[2],
+    x_low = return_rounded_iqr(plotting_df$p70older)[1],
+    x_label = "Population over 70\nyears of age (%)",
+    y_var = p_group_quarters,
+    y_high = return_rounded_iqr(plotting_df$p_group_quarters)[2],
+    y_low = return_rounded_iqr(plotting_df$p_group_quarters)[1],
+    y_label = "Population living\nin group quarters (%)",
 )
 
-## Fig 4 -- Premature mortality and % non-white ----
-p1 <- mega_plot_bivariate(
+## 4. Percent non-white vs percent over 70 ----
+p4 <- mega_plot_bivariate(
     plotting_df = plotting_df,
     return_data = TRUE,
     x_var = p_nonwhite,
-    x_high = 50,
-    x_low = 25,
-    x_label = "% of population\nnon-Hispanic and non-White",
-    rev_x = FALSE,
-    y_var = premature_mort,
-    y_high = 10000,
-    y_low = 7500,
-    y_label = "Age-adjusted years of\npotential life lost before age 75",
+    x_high = return_rounded_iqr(plotting_df$p_nonwhite)[2],
+    x_low = return_rounded_iqr(plotting_df$p_nonwhite)[1],
+    x_label = "Population non-white (%)",
+    y_var = p70older,
+    y_high = return_rounded_iqr(plotting_df$p70older)[2],
+    y_low = return_rounded_iqr(plotting_df$p70older)[1],
+    y_label = "Population over 70\nyears of age (%)"
 )
-p1$counts %>% filter(color_hex == "#2a1a8a") %>% pull(n)
-plotting_df %>% filter(fips %in% (p1$data %>% filter(color_hex == "#2a1a8a") %>% pull(fips))) %>% pull(n_pop_2018) %>% sum(.)
-ggsave(
-    "./plots/fig04_bivariate_nonwhite_premature_mort.pdf",
+
+## 5. Percent non-white vs percent in poverty ----
+p5 <- mega_plot_bivariate(
+    plotting_df = plotting_df,
+    return_data = TRUE,
+    x_var = p_nonwhite,
+    x_high = return_rounded_iqr(plotting_df$p_nonwhite)[2],
+    x_low = return_rounded_iqr(plotting_df$p_nonwhite)[1],
+    x_label = "Population non-white (%)",
+    y_var = p_poverty,
+    y_high = return_rounded_iqr(plotting_df$p_poverty)[2],
+    y_low = return_rounded_iqr(plotting_df$p_poverty)[1],
+    y_label = "Households under\npoverty-line (%)"
+)
+
+## 6. Percent non-white vs percent in group quarters ----
+p6 <- mega_plot_bivariate(
+    plotting_df = plotting_df,
+    return_data = TRUE,
+    x_var = p_nonwhite,
+    x_high = return_rounded_iqr(plotting_df$p_nonwhite)[2],
+    x_low = return_rounded_iqr(plotting_df$p_nonwhite)[1],
+    x_label = "Population non-white (%)",
+    y_var = p_group_quarters,
+    y_high = return_rounded_iqr(plotting_df$p_group_quarters)[2],
+    y_low = return_rounded_iqr(plotting_df$p_group_quarters)[1],
+    y_label = "Population living\nin group quarters (%)",
+)
+
+
+## Save ----
+## Figure 1 all ----
+p1_all <- cowplot::plot_grid(
+    p1$legend_only,
+    p1$map_only,
+    p2$legend_only,
+    p2$map_only,
+    p3$legend_only,
+    p3$map_only,
+    ncol = 2,
+    rel_widths = c(.5, 1),
+    labels = c("A", "", "B", "", "C"),
+    scale = rep(c(.78, 1), 3)
+)
+ggplot2::ggsave(
+    here::here("plots", "fig01_covariates.pdf"),
+    p1_all,
+    device = grDevices::cairo_pdf,
+    width = 6,
+    height = 8,
+    scale = 1.2
+)
+ggplot2::ggsave(
+    here::here("plots", "fig01_covariates.jpg"),
+    p1_all,
+    dpi = 300,
+    width = 6,
+    height = 8,
+    scale = 1.2
+)
+
+## Figure 1 all ----
+p2_all <- cowplot::plot_grid(
+    p4$legend_only,
+    p4$map_only,
+    p5$legend_only,
+    p5$map_only,
+    p6$legend_only,
+    p6$map_only,
+    ncol = 2,
+    rel_widths = c(.5, 1),
+    labels = c("A", "", "B", "", "C"),
+    scale = rep(c(.78, 1), 3)
+)
+ggplot2::ggsave(
+    here::here("plots", "fig02_raceethnicity.pdf"),
+    p2_all,
+    device = grDevices::cairo_pdf,
+    width = 6,
+    height = 8,
+    scale = 1.2
+)
+ggplot2::ggsave(
+    here::here("plots", "fig02_raceethnicity.jpg"),
+    p2_all,
+    dpi = 300,
+    width = 6,
+    height = 8,
+    scale = 1.2
+)
+
+## Save all the plots as individual plots ----
+ggplot2::ggsave(
+    here::here("plots", "fig01-1.pdf"),
     p1$plot,
-    device = cairo_pdf,
-    width = 10,
-    height = 6,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
     scale = 1.1
 )
-ggsave(
-    "./plots/fig04_bivariate_nonwhite_premature_mort.jpg",
+ggplot2::ggsave(
+    here::here("plots", "fig01-1.jpg"),
     p1$plot,
     dpi = 300,
-    width = 10,
-    height = 6,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+
+ggplot2::ggsave(
+    here::here("plots", "fig01-2.pdf"),
+    p2$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+ggplot2::ggsave(
+    here::here("plots", "fig01-2.jpg"),
+    p2$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+
+ggplot2::ggsave(
+    here::here("plots", "fig01-3.pdf"),
+    p3$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+ggplot2::ggsave(
+    here::here("plots", "fig01-3.jpg"),
+    p3$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+
+ggplot2::ggsave(
+    here::here("plots", "fig02-1.pdf"),
+    p4$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+ggplot2::ggsave(
+    here::here("plots", "fig02-1.jpg"),
+    p4$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+
+ggplot2::ggsave(
+    here::here("plots", "fig02-2.pdf"),
+    p5$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+ggplot2::ggsave(
+    here::here("plots", "fig02-2.jpg"),
+    p5$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+
+ggplot2::ggsave(
+    here::here("plots", "fig02-3.pdf"),
+    p6$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.1
+)
+ggplot2::ggsave(
+    here::here("plots", "fig02-3.jpg"),
+    p6$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
     scale = 1.1
 )

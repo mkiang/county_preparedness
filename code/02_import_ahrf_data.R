@@ -2,7 +2,7 @@
 ##
 ## Clean up AHRF files and extract the subset of columns we need.
 ##
-## Note that this code is almost entirely from jjchern's ahrf repo:
+## Note that this code is almost entirely from jjchern's great ahrf repo:
 ##  https://github.com/mkiang/ahrf/blob/master/data-raw/prep_county.R
 
 ## Imports ----
@@ -71,19 +71,20 @@ labelled::var_label(ahrf_county) <- ahrf_county_layout %>%
 
 ## Extract scaling factor ----
 ahrf_county_layout <- ahrf_county_layout %>%
-    mutate(scaling_factor = stringr::str_extract(characteristics, "\\(.[0-1]{1,2}\\)")) %>%
-    mutate(scaling_factor = as.numeric(gsub("\\(|\\)", "", scaling_factor)))
+    dplyr::mutate(scaling_factor = stringr::str_extract(characteristics, "\\(.[0-1]{1,2}\\)")) %>%
+    dplyr::mutate(scaling_factor = as.numeric(gsub("\\(|\\)", "", scaling_factor)))
 
 ## Rescale columns ----
 for (s in unique(ahrf_county_layout$scaling_factor)) {
     if (!is.na(s)) {
         ahrf_county <- ahrf_county %>%
-            mutate_at(vars(
+            dplyr::mutate_at(dplyr::vars(
                 ahrf_county_layout %>%
-                    filter(scaling_factor == s) %>%
-                    pull(field)
+                    dplyr::filter(scaling_factor == s) %>%
+                    dplyr::pull(field)
             ),
-            function(x) as.numeric(x) * s)
+            function(x)
+                as.numeric(x) * s)
     }
 }
 

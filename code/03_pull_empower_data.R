@@ -1,8 +1,8 @@
 ## 03_pull_empower_data.R ----
 ## 
 ## Note that the data are public, but we pull this from a private server. We
-## share the processed data here but this code will not run without access
-## to our server. 
+## share the processed data here but THIS CODE WILL NOT RUN WITHOUT ACCSS TO
+## OUR PRIVATE SERVER. We do share the data that results from this code. 
 
 ## Imports ----
 library(RPostgreSQL)

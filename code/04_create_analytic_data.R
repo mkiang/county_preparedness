@@ -35,65 +35,65 @@ empower_full <-
 pop_density <-
     readr::read_csv(here::here(WORKING_DATA, "population_density.csv"))
 cdc_atlas <-
-    read_csv(here(WORKING_DATA, "CDC_atlas_risk_factors.csv"), na = "-1")
-acs_vars <- read_csv(
-    here(
+    readr::read_csv(here::here(WORKING_DATA, "CDC_atlas_risk_factors.csv"), na = "-1")
+acs_vars <- readr::read_csv(
+    here::here(
         "data_raw",
         "ACSDP5Y2018.DP02_2020-03-19T121843",
         "ACSDP5Y2018.DP02_data_with_overlays_2020-03-19T121741.csv"
     ),
 )
 rwjf_df <-
-    read_csv(here(
+    readr::read_csv(here::here(
         "data_raw",
         "RWJF_CHR_2019",
         "RWJF_CHR_analytic_data2019.csv"
     ),
     skip = 1) %>%
-    filter(!is.na(county_ranked))
-gini_df <- read_csv(
-    here(
+    dplyr::filter(!is.na(county_ranked))
+gini_df <- readr::read_csv(
+    here::here(
         "data_raw", 
         "ACSDT5Y2018.B19083_2020-03-20T172559", 
         "ACSDT5Y2018.B19083_data_with_overlays_2020-03-20T172555.csv"
     )
 )
-renter_df <- read_csv(
-    here(
+renter_df <- readr::read_csv(
+    here::here(
         "data_raw", 
         "ACSST5Y2018.S1101_2020-03-19T180025", 
         "ACSST5Y2018.S1101_data_with_overlays_2020-03-19T180018.csv"
     )
 )
-ice_df <- read_csv(
-    here(
+ice_df <- readr::read_csv(
+    here::here(
         "data_raw", 
         "USCountyABSM_2018.csv"
     )
 )
-gq_df <- read_csv(
-    here(
+gq_df <- readr::read_csv(
+    here::here(
         "data_raw", 
         "2018_ACS5_GQ_County.csv"
     )
 )
-nonwhite_df <- read_csv(
-    here(
+nonwhite_df <- readr::read_csv(
+    here::here(
         "data",
         "percent_nonwhite_pop.csv"
     )
 )
 ddkids_crowded <-
-    read_csv(
-        here(
+    readr::read_csv(
+        here::here(
             "data_raw",
             "diversitydatakids",
             "25014_1_P_050_5_crowded_housing_race.csv"
         )
     )
 ddkids_highcost <-
-    read_csv(
-        here(
+    readr::read_csv(
+        here::here(
             "data_raw",
             "diversitydatakids",
             "25106_1_C_050_5_hh_high_housing_costs.csv"
@@ -132,48 +132,48 @@ ahrf_subset <- ahrf_subset %>%
 
 ## ACS variables ----
 acs_vars <- acs_vars %>%
-    slice(-1) %>%
-    select(all_of(dp02_to_keep)) %>%
-    mutate(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid))) %>%
-    select(-geoid) %>%
-    filter(avg_hh_size != "null",
+    dplyr::slice(-1) %>%
+    dplyr::select(dplyr::all_of(dp02_to_keep)) %>%
+    dplyr::mutate(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid))) %>%
+    dplyr::select(-geoid) %>%
+    dplyr::filter(avg_hh_size != "null",
            fips != "000US") %>%
-    group_by(fips) %>%
-    mutate_at(vars(-group_cols()), as.numeric) %>%
-    ungroup() %>%
-    mutate(p_hh_grandparents_with_under18 = p_hh_grandparents_with_under18 /
+    dplyr::group_by(fips) %>%
+    dplyr::mutate_at(dplyr::vars(-dplyr::group_cols()), as.numeric) %>%
+    dplyr::ungroup() %>%
+    dplyr::mutate(p_hh_grandparents_with_under18 = p_hh_grandparents_with_under18 /
                n_households * 100)
 
 ## Gini coefficient ----
 gini_df <- gini_df %>%
-    slice(-1) %>%
-    select(geoid = GEO_ID,
+    dplyr::slice(-1) %>%
+    dplyr::select(geoid = GEO_ID,
            gini_coef = B19083_001E) %>%
-    mutate(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid))) %>%
-    select(-geoid) %>%
-    filter(gini_coef != "null",
+    dplyr::mutate(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid))) %>%
+    dplyr::select(-geoid) %>%
+    dplyr::filter(gini_coef != "null",
            fips != "000US") %>%
-    mutate(gini_coef = as.numeric(gini_coef))
+    dplyr::mutate(gini_coef = as.numeric(gini_coef))
 
 ## Renters ----
 renter_df <- renter_df %>% 
-    slice(-1) %>% 
-    select(geoid = GEO_ID, 
+    dplyr::slice(-1) %>% 
+    dplyr::select(geoid = GEO_ID, 
            p_hh_renter = S1101_C01_020E) %>%
-    mutate(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid))) %>%
-    select(-geoid) %>%
-    filter(p_hh_renter != "null",
+    dplyr::mutate(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid))) %>%
+    dplyr::select(-geoid) %>%
+    dplyr::filter(p_hh_renter != "null",
            fips != "000US") %>%
-    mutate(p_hh_renter = as.numeric(p_hh_renter))
+    dplyr::mutate(p_hh_renter = as.numeric(p_hh_renter))
 
 ## ICE ----
 ice_df <- ice_df %>% 
-    select(fips = GEOID, 
+    dplyr::select(fips = GEOID, 
            ice_wb_income = ICEwbinc)
 
 ## Group quarters ----
 gq_df <- gq_df %>% 
-    select(fips = FIPS, 
+    dplyr::select(fips = FIPS, 
            p_group_quarters = pctGQ)
 
 ## Reshape population ----
@@ -190,7 +190,7 @@ data_wide <- data_wide %>%
 
 ## Create 2018 population count ----
 data_wide <- data_wide %>%
-    mutate(
+    dplyr::mutate(
         n_pop_2018 = age0 + age5 + age10 + age15 + age20 +
             age25 + age30 + age35 + age40 + age45 + age50 +
             age55 + age60 + age65 + age70 + age75 + age80 +
@@ -199,39 +199,39 @@ data_wide <- data_wide %>%
 
 ## Non-white population (percentage) ----
 data_wide <- data_wide %>% 
-    left_join(nonwhite_df)
+    dplyr::left_join(nonwhite_df)
 
 ## Join in the CDC Atlas data ----
 data_wide <- data_wide %>%
-    left_join(cdc_atlas %>%
-                  mutate(fips = sprintf("%05d", cnty_fips)) %>%
-                  select(-cnty_fips, -display_name))
+    dplyr::left_join(cdc_atlas %>%
+                  dplyr::mutate(fips = sprintf("%05d", cnty_fips)) %>%
+                  dplyr::select(-cnty_fips, -display_name))
 
 ## Join with ACS ----
 data_wide <- data_wide %>%
-    left_join(acs_vars)
+    dplyr::left_join(acs_vars)
 
 ## Join with Gini coef ----
 data_wide <- data_wide %>% 
-    left_join(gini_df)
+    dplyr::left_join(gini_df)
 
 ## Join with Renter ----
 data_wide <- data_wide %>% 
-    left_join(renter_df)
+    dplyr::left_join(renter_df)
 
 ## Join with ICE ----
 data_wide <- data_wide %>% 
-    left_join(ice_df)
+    dplyr::left_join(ice_df)
 
 ## Join with GQ ----
 data_wide <- data_wide %>% 
-    left_join(gq_df)
+    dplyr::left_join(gq_df)
 
 ## Join with RWJF ----
 data_wide <- data_wide %>% 
-    left_join(
+    dplyr::left_join(
         rwjf_df %>%
-            select(
+            dplyr::select(
                 fips = fipscode,
                 premature_mort = v001_rawvalue,
                 severe_housing_problems = v136_rawvalue,
@@ -241,23 +241,23 @@ data_wide <- data_wide %>%
 
 ## Join with DDKids Crowded Housing ----
 data_wide <- data_wide %>% 
-    left_join(
+    dplyr::left_join(
        ddkids_crowded %>%
-            group_by(geoid) %>%
-            filter(year == max(year)) %>%
-            ungroup() %>%
-            transmute(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid)),
+            dplyr::group_by(geoid) %>%
+            dplyr::filter(year == max(year)) %>%
+            dplyr::ungroup() %>%
+            dplyr::transmute(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid)),
                       p_crowded_housing = total_est) 
     )
 
 ## Join with DDKids High Housing Cost ----
 data_wide <- data_wide %>% 
-    left_join(
+    dplyr::left_join(
         ddkids_highcost %>%
-            group_by(geoid) %>%
-            filter(year == max(year)) %>%
-            ungroup() %>%
-            transmute(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid)),
+            dplyr::group_by(geoid) %>%
+            dplyr::filter(year == max(year)) %>%
+            dplyr::ungroup() %>%
+            dplyr::transmute(fips = substr(geoid, nchar(geoid) - 4, nchar(geoid)),
                       high_housing_cost = total_est) 
     )
 
