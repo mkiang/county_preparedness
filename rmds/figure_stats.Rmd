@@ -1,0 +1,358 @@
+---
+title: "Code for paper figures and stats"
+output: 
+  html_document:
+    code_folding: 'hide'
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(error = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+## Set up
+
+```{r}
+## Imports ----
+library(tidyverse)
+library(patchwork)
+library(DT)
+library(here)
+source("./code/utils.R")
+
+## Data ----
+analytic_df <- read_csv("./data/analytic_data_wide.csv")
+plotting_df <- process_to_plotting_df(analytic_df)
+```
+
+####  1. Percent over 70 (x) vs percent in poverty (y)
+```{r}
+temp_df <- plotting_df %>%
+    filter(!is.na(n_pop_2017)) %>%
+    mutate(high_risk = ifelse(
+        p70older > return_rounded_iqr(plotting_df$p70older)[2] &
+            p_poverty > return_rounded_iqr(plotting_df$p_poverty)[2],
+        1,
+        0
+    )) 
+
+national_df <- temp_df %>%
+    summarize(
+        n_total_counties = sum(!is.na(n_pop_2017)),
+        n_non_missing = min(sum(!is.na(p70older)), sum(!is.na(p_poverty))),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    )
+
+national_df$pop_at_risk <- temp_df %>% 
+  filter(high_risk == 1) %>% 
+  pull(n_pop_2017) %>% 
+  sum()
+
+ranked_df <- temp_df %>%
+    group_by(abbrev) %>%
+    summarize(
+        n_total_counties = n(),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    ) %>%
+    left_join(
+        temp_df %>%
+            filter(high_risk == 1) %>%
+            group_by(abbrev) %>%
+            summarize(pop_at_risk = sum(n_pop_2017, na.rm = TRUE))
+    ) %>% 
+    mutate(n_rank = dense_rank(desc(n_high_risk_counties)), 
+           p_rank = dense_rank(desc(p_high_risk_counties)),
+           pop_rank = dense_rank(desc(pop_at_risk))) %>% 
+    ungroup()
+```
+
+In the US, `r national_df$n_high_risk_counties` out of `r national_df$n_non_missing` counties (`r sprintf("%0.3f", round(national_df$p_high_risk_counties, 3))`) are at high risk for both. A total of `r sprintf("%s", round(national_df$pop_at_risk))` people live in these counties.
+
+For the x-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p70older)[2]` which includes `r temp_df %>% filter(p70older > return_rounded_iqr(plotting_df$p70older)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p70older)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p70older)`.
+
+For the y-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_poverty)[2]` which includes `r temp_df %>% filter(p_poverty > return_rounded_iqr(plotting_df$p_poverty)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_poverty)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_poverty)`.
+
+The top 5 states by number of counties are: `r ranked_df %>% filter(n_rank <= 5) %>% transmute(x = sprintf("%s (%i of %i; population at risk of %i)", abbrev, n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by proportion of counties are: `r ranked_df %>% filter(p_rank <= 5) %>% transmute(x = sprintf("%s (%0.3f; %i of %i counties; population at risk %i)", abbrev, round(p_high_risk_counties, 3), n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by number of people affected are: `r ranked_df %>% filter(pop_rank <= 5) %>% transmute(x = sprintf("%s (%i people in %i of %i counties)", abbrev, pop_at_risk, n_high_risk_counties, n_total_counties)) %>% pull(x)`.
+
+####  2. Percent over 70 (x) vs percent in group quarters (y)
+```{r}
+temp_df <- plotting_df %>%
+    filter(!is.na(n_pop_2017)) %>%
+    mutate(high_risk = ifelse(
+        p70older > return_rounded_iqr(plotting_df$p70older)[2] &
+            p_group_quarters > return_rounded_iqr(plotting_df$p_group_quarters)[2],
+        1,
+        0
+    )) 
+
+national_df <- temp_df %>%
+    summarize(
+        n_total_counties = sum(!is.na(n_pop_2017)),
+        n_non_missing = min(sum(!is.na(p70older)), sum(!is.na(p_group_quarters))),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    )
+
+national_df$pop_at_risk <- temp_df %>% 
+  filter(high_risk == 1) %>% 
+  pull(n_pop_2017) %>% 
+  sum()
+
+ranked_df <- temp_df %>%
+    group_by(abbrev) %>%
+    summarize(
+        n_total_counties = n(),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    ) %>%
+    left_join(
+        temp_df %>%
+            filter(high_risk == 1) %>%
+            group_by(abbrev) %>%
+            summarize(pop_at_risk = sum(n_pop_2017, na.rm = TRUE))
+    ) %>% 
+    mutate(n_rank = dense_rank(desc(n_high_risk_counties)), 
+           p_rank = dense_rank(desc(p_high_risk_counties)),
+           pop_rank = dense_rank(desc(pop_at_risk))) %>% 
+    ungroup()
+```
+
+In the US, `r national_df$n_high_risk_counties` out of `r national_df$n_non_missing` counties (`r sprintf("%0.3f", round(national_df$p_high_risk_counties, 3))`) are at high risk for both. A total of `r sprintf("%s", round(national_df$pop_at_risk))` people live in these counties. 
+
+For the x-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p70older)[2]` which includes `r temp_df %>% filter(p70older > return_rounded_iqr(plotting_df$p70older)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p70older)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p70older)`.
+
+For the y-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_group_quarters)[2]` which includes `r temp_df %>% filter(p_group_quarters > return_rounded_iqr(plotting_df$p_group_quarters)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_group_quarters)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_group_quarters)`.
+
+The top 5 states by number of counties are: `r ranked_df %>% filter(n_rank <= 5) %>% transmute(x = sprintf("%s (%i of %i; population at risk of %i)", abbrev, n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by proportion of counties are: `r ranked_df %>% filter(p_rank <= 5) %>% transmute(x = sprintf("%s (%0.3f; %i of %i counties; population at risk %i)", abbrev, round(p_high_risk_counties, 3), n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by number of people affected are: `r ranked_df %>% filter(pop_rank <= 5) %>% transmute(x = sprintf("%s (%i people in %i of %i counties)", abbrev, pop_at_risk, n_high_risk_counties, n_total_counties)) %>% pull(x)`.
+
+####  3. Percent in poverty (x) vs percent in group quarters (y)
+```{r}
+temp_df <- plotting_df %>%
+    filter(!is.na(n_pop_2017)) %>%
+    mutate(high_risk = ifelse(
+        p_poverty > return_rounded_iqr(plotting_df$p_poverty)[2] &
+            p_group_quarters > return_rounded_iqr(plotting_df$p_group_quarters)[2],
+        1,
+        0
+    )) 
+
+national_df <- temp_df %>%
+    summarize(
+        n_total_counties = sum(!is.na(n_pop_2017)),
+        n_non_missing = min(sum(!is.na(p_poverty)), sum(!is.na(p_group_quarters))),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    )
+
+national_df$pop_at_risk <- temp_df %>% 
+  filter(high_risk == 1) %>% 
+  pull(n_pop_2017) %>% 
+  sum()
+
+ranked_df <- temp_df %>%
+    group_by(abbrev) %>%
+    summarize(
+        n_total_counties = n(),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    ) %>%
+    left_join(
+        temp_df %>%
+            filter(high_risk == 1) %>%
+            group_by(abbrev) %>%
+            summarize(pop_at_risk = sum(n_pop_2017, na.rm = TRUE))
+    ) %>% 
+    mutate(n_rank = dense_rank(desc(n_high_risk_counties)), 
+           p_rank = dense_rank(desc(p_high_risk_counties)),
+           pop_rank = dense_rank(desc(pop_at_risk))) %>% 
+    ungroup()
+```
+
+In the US, `r national_df$n_high_risk_counties` out of `r national_df$n_non_missing` counties (`r sprintf("%0.3f", round(national_df$p_high_risk_counties, 3))`) are at high risk for both. A total of `r sprintf("%s", round(national_df$pop_at_risk))` people live in these counties. 
+
+For the x-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_poverty)[2]` which includes `r temp_df %>% filter(p_poverty > return_rounded_iqr(plotting_df$p_poverty)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_poverty)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_poverty)`.
+
+For the y-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_group_quarters)[2]` which includes `r temp_df %>% filter(p_group_quarters > return_rounded_iqr(plotting_df$p_group_quarters)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_group_quarters)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_group_quarters)`.
+
+The top 5 states by number of counties are: `r ranked_df %>% filter(n_rank <= 5) %>% transmute(x = sprintf("%s (%i of %i; population at risk of %i)", abbrev, n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by proportion of counties are: `r ranked_df %>% filter(p_rank <= 5) %>% transmute(x = sprintf("%s (%0.3f; %i of %i counties; population at risk %i)", abbrev, round(p_high_risk_counties, 3), n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by number of people affected are: `r ranked_df %>% filter(pop_rank <= 5) %>% transmute(x = sprintf("%s (%i people in %i of %i counties)", abbrev, pop_at_risk, n_high_risk_counties, n_total_counties)) %>% pull(x)`.
+
+####  4. Percent non-white (x) vs percent over 70 (y)
+```{r}
+temp_df <- plotting_df %>%
+    filter(!is.na(n_pop_2017)) %>%
+    mutate(high_risk = ifelse(
+        p_nonwhite > return_rounded_iqr(plotting_df$p_nonwhite)[2] &
+            p70older > return_rounded_iqr(plotting_df$p70older)[2],
+        1,
+        0
+    )) 
+
+national_df <- temp_df %>%
+    summarize(
+        n_total_counties = sum(!is.na(n_pop_2017)),
+        n_non_missing = min(sum(!is.na(p_nonwhite)), sum(!is.na(p70older))),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    )
+
+national_df$pop_at_risk <- temp_df %>% 
+  filter(high_risk == 1) %>% 
+  pull(n_pop_2017) %>% 
+  sum()
+
+ranked_df <- temp_df %>%
+    group_by(abbrev) %>%
+    summarize(
+        n_total_counties = n(),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    ) %>%
+    left_join(
+        temp_df %>%
+            filter(high_risk == 1) %>%
+            group_by(abbrev) %>%
+            summarize(pop_at_risk = sum(n_pop_2017, na.rm = TRUE))
+    ) %>% 
+    mutate(n_rank = dense_rank(desc(n_high_risk_counties)), 
+           p_rank = dense_rank(desc(p_high_risk_counties)),
+           pop_rank = dense_rank(desc(pop_at_risk))) %>% 
+    ungroup()
+```
+
+In the US, `r national_df$n_high_risk_counties` out of `r national_df$n_non_missing` counties (`r sprintf("%0.3f", round(national_df$p_high_risk_counties, 3))`) are at high risk for both. A total of `r sprintf("%s", round(national_df$pop_at_risk))` people live in these counties. 
+
+For the x-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_nonwhite)[2]` which includes `r temp_df %>% filter(p_nonwhite > return_rounded_iqr(plotting_df$p_nonwhite)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_nonwhite)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_nonwhite)`.
+
+For the y-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p70older)[2]` which includes `r temp_df %>% filter(p70older > return_rounded_iqr(plotting_df$p70older)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p70older)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p70older)`.
+
+The top 5 states by number of counties are: `r ranked_df %>% filter(n_rank <= 5) %>% transmute(x = sprintf("%s (%i of %i; population at risk of %i)", abbrev, n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by proportion of counties are: `r ranked_df %>% filter(p_rank <= 5) %>% transmute(x = sprintf("%s (%0.3f; %i of %i counties; population at risk %i)", abbrev, round(p_high_risk_counties, 3), n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by number of people affected are: `r ranked_df %>% filter(pop_rank <= 5) %>% transmute(x = sprintf("%s (%i people in %i of %i counties)", abbrev, pop_at_risk, n_high_risk_counties, n_total_counties)) %>% pull(x)`.
+
+####  5. Percent non-white (x) vs percent in poverty (y)
+```{r}
+temp_df <- plotting_df %>%
+    filter(!is.na(n_pop_2017)) %>%
+    mutate(high_risk = ifelse(
+        p_nonwhite > return_rounded_iqr(plotting_df$p_nonwhite)[2] &
+            p_poverty > return_rounded_iqr(plotting_df$p_poverty)[2],
+        1,
+        0
+    )) 
+
+national_df <- temp_df %>%
+    summarize(
+        n_total_counties = sum(!is.na(n_pop_2017)),
+        n_non_missing = min(sum(!is.na(p_nonwhite)), sum(!is.na(p_poverty))),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    )
+
+national_df$pop_at_risk <- temp_df %>% 
+  filter(high_risk == 1) %>% 
+  pull(n_pop_2017) %>% 
+  sum()
+
+ranked_df <- temp_df %>%
+    group_by(abbrev) %>%
+    summarize(
+        n_total_counties = n(),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    ) %>%
+    left_join(
+        temp_df %>%
+            filter(high_risk == 1) %>%
+            group_by(abbrev) %>%
+            summarize(pop_at_risk = sum(n_pop_2017, na.rm = TRUE))
+    ) %>% 
+    mutate(n_rank = dense_rank(desc(n_high_risk_counties)), 
+           p_rank = dense_rank(desc(p_high_risk_counties)),
+           pop_rank = dense_rank(desc(pop_at_risk))) %>% 
+    ungroup()
+```
+
+In the US, `r national_df$n_high_risk_counties` out of `r national_df$n_non_missing` counties (`r sprintf("%0.3f", round(national_df$p_high_risk_counties, 3))`) are at high risk for both. A total of `r sprintf("%s", round(national_df$pop_at_risk))` people live in these counties. 
+
+For the x-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_nonwhite)[2]` which includes `r temp_df %>% filter(p_nonwhite > return_rounded_iqr(plotting_df$p_nonwhite)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_nonwhite)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_nonwhite)`.
+
+For the y-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_poverty)[2]` which includes `r temp_df %>% filter(p_poverty > return_rounded_iqr(plotting_df$p_poverty)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_poverty)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_poverty)`.
+
+The top 5 states by number of counties are: `r ranked_df %>% filter(n_rank <= 5) %>% transmute(x = sprintf("%s (%i of %i; population at risk of %i)", abbrev, n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by proportion of counties are: `r ranked_df %>% filter(p_rank <= 5) %>% transmute(x = sprintf("%s (%0.3f; %i of %i counties; population at risk %i)", abbrev, round(p_high_risk_counties, 3), n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by number of people affected are: `r ranked_df %>% filter(pop_rank <= 5) %>% transmute(x = sprintf("%s (%i people in %i of %i counties)", abbrev, pop_at_risk, n_high_risk_counties, n_total_counties)) %>% pull(x)`.
+
+####  6. Percent non-white (x) vs percent in group quarters (y)
+```{r}
+temp_df <- plotting_df %>%
+    filter(!is.na(n_pop_2017)) %>%
+    mutate(high_risk = ifelse(
+        p_nonwhite > return_rounded_iqr(plotting_df$p_nonwhite)[2] &
+            p_group_quarters > return_rounded_iqr(plotting_df$p_group_quarters)[2],
+        1,
+        0
+    )) 
+
+national_df <- temp_df %>%
+    summarize(
+        n_total_counties = sum(!is.na(n_pop_2017)),
+        n_non_missing = min(sum(!is.na(p_nonwhite)), sum(!is.na(p_group_quarters))),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    )
+
+national_df$pop_at_risk <- temp_df %>% 
+  filter(high_risk == 1) %>% 
+  pull(n_pop_2017) %>% 
+  sum()
+
+ranked_df <- temp_df %>%
+    group_by(abbrev) %>%
+    summarize(
+        n_total_counties = n(),
+        n_high_risk_counties = sum(high_risk, na.rm = TRUE),
+        p_high_risk_counties = mean(high_risk, na.rm = TRUE)
+    ) %>%
+    left_join(
+        temp_df %>%
+            filter(high_risk == 1) %>%
+            group_by(abbrev) %>%
+            summarize(pop_at_risk = sum(n_pop_2017, na.rm = TRUE))
+    ) %>% 
+    mutate(n_rank = dense_rank(desc(n_high_risk_counties)), 
+           p_rank = dense_rank(desc(p_high_risk_counties)),
+           pop_rank = dense_rank(desc(pop_at_risk))) %>% 
+    ungroup()
+```
+
+In the US, `r national_df$n_high_risk_counties` out of `r national_df$n_non_missing` counties (`r sprintf("%0.3f", round(national_df$p_high_risk_counties, 3))`) are at high risk for both. A total of `r sprintf("%s", round(national_df$pop_at_risk))` people live in these counties. 
+
+For the x-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_nonwhite)[2]` which includes `r temp_df %>% filter(p_nonwhite > return_rounded_iqr(plotting_df$p_nonwhite)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_nonwhite)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_nonwhite)`.
+
+For the y-variable, the 75th %ile value is `r return_rounded_iqr(plotting_df$p_group_quarters)[2]` which includes `r temp_df %>% filter(p_group_quarters > return_rounded_iqr(plotting_df$p_group_quarters)[2]) %>% NROW()` out of `r temp_df %>% filter(!is.na(p_group_quarters)) %>% NROW()` counties. The IQR is: `r return_rounded_iqr(plotting_df$p_group_quarters)`.
+
+The top 5 states by number of counties are: `r ranked_df %>% filter(n_rank <= 5) %>% transmute(x = sprintf("%s (%i of %i; population at risk of %i)", abbrev, n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by proportion of counties are: `r ranked_df %>% filter(p_rank <= 5) %>% transmute(x = sprintf("%s (%0.3f; %i of %i counties; population at risk %i)", abbrev, round(p_high_risk_counties, 3), n_high_risk_counties, n_total_counties, pop_at_risk)) %>% pull(x)`.
+
+The top 5 states by number of people affected are: `r ranked_df %>% filter(pop_rank <= 5) %>% transmute(x = sprintf("%s (%i people in %i of %i counties)", abbrev, pop_at_risk, n_high_risk_counties, n_total_counties)) %>% pull(x)`.
