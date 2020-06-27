@@ -85,6 +85,12 @@ demand.
 Please report issues via email or the [issues
 page](https://github.com/mkiang/county_preparedness/issues).
 
+## Data
+
+All data used are publicly-available. Our cleaned, harmonized, analytic
+data can be found in the `./data/` folder along with the corresponding
+`data_dictionary.csv`.
+
 ## Project structure
 
   - `./code/` contains all code needed to reproduce our analyses. This
