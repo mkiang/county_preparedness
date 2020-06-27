@@ -4,6 +4,7 @@ rsconnect/
 /code/secrets.R
 Icon*
 county_preparedness_ORIGINAL.zip
+/manuscript/**
 
 ## R things
 # History files
