@@ -40,7 +40,7 @@ prev_hosp_stays_rate_2017,Preventable Hospital Stays Rate,Medicare FFS Enrollees
 n_hospital_beds_2017,Hospital Beds,Total Hospitals (AHA Survey Database 17),F08921-17
 n_st_gen_hosp_beds_2017,Short Term General Hosp Beds,Coded '10-1' (AHA Survey Database 17),F08922-17
 n_st_comm_hosp_beds_2017,Short Term Community Hosp Beds,NA (AHA Survey Database 17),F08925-17
-n_nursing_home_beds_2017,"Nursing Home Beds, Total Hosp",Total Hospitals (AHA Survey Database 17),F14049-17
+n_hosp_nursing_home_beds_2017,"Nursing Home Beds, Total Hosp",Total Hospitals (AHA Survey Database 17),F14049-17
 n_licensed_beds_all_hosp_2017,"Licensed Beds, Total Hospital",Incl Nurs Home;Total Hosps (AHA Survey Database 17),F14041-17
 n_licensed_beds_st_hosp_2017,"Licensed Beds, Short Term Hosp",Incl Nurs Homes (AHA Survey Database 17),F14042-17
 n_st_gen_hosp_lt50_beds_2017,"# ST Gen Hosp, 006-049 Beds",NA (AHA Survey Database 17),F11386-17
@@ -78,6 +78,7 @@ dist_other_hosp_15_24_services_2017,Dist Hosp By 15 - 24 Services,ST Non-Gen + L
 dist_st_hosp_25_services_2017,Dist Hosp By 25+ Services,Short Term General Hospitals (AHA Survey Database 17),F09543-17
 dist_other_hosp_25_services_2017,Dist Hosp By 25+ Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09544-17
 n_skilled_nursing_2017,# Skilled Nursing Facilities,Certified Medicare Providers (CMS Provider of Services),F13211-18
+n_fac_nursing_home_beds_2018,Nursing Facilities Total Beds,Certified Medicare Providers (CMS Provider of Services),F13216-18
 n_fqhcs_2018,# Fed Qualified Health Centers,Certified Medicare Providers (CMS Provider of Services),F13320-18
 n_patient_days_short_term_2017,Inpatient Days in ST Gen Hosp,NA (AHA Survey Database 17),F09546-17
 dist_st_hosp_00_39p_util_rate_2017,Dist Hosp By 00 - 39% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11391-17
@@ -110,6 +111,7 @@ n_65yo_below_deep_poverty_2017,# Persons 65+ in Deep Poverty,Table B17024 (2013-
 p_65yo_below_poverty_level_2017,% Persons 65+ in Deep Poverty,(.1) Table B17024 (2013-17 Census ACS),F15425-13
 n_people_below_poverty_level_2017,# Persons Below Poverty Level,Table B17001 (2013-17 Census ACS),F14419-13
 n_65yo_below_poverty_level_2017,# Pers 65+ Below Poverty Level,Table B17001 (2013-17 Census ACS),F14429-13
+p_18_64_no_insurance_allincome,% 18-64 without Health Ins,(.1) Estimates (Census SAHIE),F15498-17
 p_18_64_no_insurance_200poverty,%18-64 no HlthIns <=200% Povrty,(.1) Estimates (Census SAHIE),F15514-17
 p_18_64_no_insurance_400poverty,%18-64 no HlthIns <=400% Povrty,(.1) Estimates (Census SAHIE),F15518-17
 prop_diabetes,Diagnosed Diabetes; Total (Total); Adults Aged 20+ Years; Age-Adjusted Percentage; U.S. Counties; 2016,CDC's Behavioral Risk Factor Surveillance System (BRFSS) and from the US Census Bureau's Population Estimates Program,NA
@@ -126,4 +128,25 @@ unemployment_rate,"Unemployment Rate, Ages 16+, 2017","U.S. Bureau of Labor Sta
 annual_PM2.5,"Annual Average Ambient Concentrations of PM2.5, 2014","CDC Environmental Public Health Tracking Network; Original data source: Environmental Protection Agency's Air Quality System",NA
 prop_uninsured,"Percentage without Health Insurance, Under Age 65, 2016","U.S. Census Bureau (SAHIE)Small Area Health Insurance Estimates",NA
 prop_medicaid_eligible,"Percentage Eligible for Medicaid, All Ages, 2012",Health Resources and Services Administration; Area Health Resources File,NA
-NA,NA,NA,NA
+geoid,id,ACS 5-year 2018 Table DP02,GEO_ID
+n_households,Estimate!!HOUSEHOLDS BY TYPE!!Total households,ACS 5-year 2018 Table DP02,DP02_0001E
+avg_hh_size,Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Nonfamily households!!Householder living alone!!65 years and over,ACS 5-year 2018 Table DP02,DP02_0015E
+n_65_living_alone,Percent Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Nonfamily households!!Householder living alone!!65 years and over,ACS 5-year 2018 Table DP02,DP02_0012E
+p_65_living_alone,Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Average household size,ACS 5-year 2018 Table DP02,DP02_0012PE
+n_hh_grandparents_with_under18,Estimate!!GRANDPARENTS!!Number of grandparents living with own grandchildren under 18 years,ACS 5-year 2018 Table DP02,DP02_0043E
+p_hh_grandparents_with_under18,Percent Estimate!!GRANDPARENTS!!Number of grandparents living with own grandchildren under 18 years,ACS 5-year 2018 Table DP02,DP02_0043PE
+n_hh_with_computer,Estimate!!PLACE OF BIRTH!!Total population!!Native,ACS 5-year 2018 Table DP02,DP02_0151E
+p_hh_with_computer,Percent Estimate!!PLACE OF BIRTH!!Total population!!Native,ACS 5-year 2018 Table DP02,DP02_0151PE
+n_hh_with_broadband,Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a computer,ACS 5-year 2018 Table DP02,DP02_0152E
+p_hh_with_broadband,Percent Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a computer,ACS 5-year 2018 Table DP02,DP02_0152PE
+n_usa_native,Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a broadband Internet subscription,ACS 5-year 2018 Table DP02,DP02_0087E
+p_usa_native,Percent Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a broadband Internet subscription,ACS 5-year 2018 Table DP02,DP02_0087PE
+fips,5-digit FIPS Code,RWJF County Health Rankings,fipscode
+premature_mort,Premature death raw value,RWJF County Health Rankings via NCHS 2016-2018 NVSS data,v001_rawvalue
+severe_housing_problems,Severe housing problems raw value,RWJF County Health Rankings via USHUD Comprehensive Housing Affordability Strategy data (2012-2016),v136_rawvalue
+severe_housing_cost_burden,Severe housing cost burden raw value,RWJF County Health Rankings via ACS 2014-2018 — Percentage of households that spend more than 50% of their income on housing,v154_rawvalue
+gini_coef,Estimate!!Gini Index,ACS 5-year 2018,B19083_001E
+p_hh_renter,Estimate!!Total!!Total households!!HOUSING TENURE!!Renter-occupied housing units,ACS 5-year 2018 Table S1101,S1101_C01_020E
+p_group_quarters,Percent of the population living in group quarters,ACS 5-year 2018,pctGQ
+p_crowded_housing,"The number of occupied housing units with more than one occupant per room divided by the number of occupied housing units, times 100, for the total population and by race/ethnicity.",Diversity Data Kids (25014_1_P_050_5_crowded_housing_race),total_est
+high_housing_cost,"The share of children living in households where more than 30 percent of the monthly income was spent on rent, mortgage payments, taxes, insurance, and/or related expenses.",Diversity Data Kids (25106_1_C_050_5_hh_high_housing_costs),total_est
