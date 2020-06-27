@@ -1,152 +1,152 @@
-var_name,var_label,var_notes_source,var_original
-age0,2018 Population in age group 0-4,NCHS Vintage 2018,NA
-age5,2018 Population in age group 5-9,NCHS Vintage 2018,NA
-age10,2018 Population in age group 10-14,NCHS Vintage 2018,NA
-age15,2018 Population in age group 15-19,NCHS Vintage 2018,NA
-age20,2018 Population in age group 20-24,NCHS Vintage 2018,NA
-age25,2018 Population in age group 25-29,NCHS Vintage 2018,NA
-age30,2018 Population in age group 30-34,NCHS Vintage 2018,NA
-age35,2018 Population in age group 35-39,NCHS Vintage 2018,NA
-age40,2018 Population in age group 40-44,NCHS Vintage 2018,NA
-age45,2018 Population in age group 45-49,NCHS Vintage 2018,NA
-age50,2018 Population in age group 50-54,NCHS Vintage 2018,NA
-age55,2018 Population in age group 55-59,NCHS Vintage 2018,NA
-age60,2018 Population in age group 60-64,NCHS Vintage 2018,NA
-age65,2018 Population in age group 65-69,NCHS Vintage 2018,NA
-age70,2018 Population in age group 70-74,NCHS Vintage 2018,NA
-age75,2018 Population in age group 75-79,NCHS Vintage 2018,NA
-age80,2018 Population in age group 80-84,NCHS Vintage 2018,NA
-age85,2018 Population in age group 85-Inf,NCHS Vintage 2018,NA
-medicare_benes,Medicare Beneficiaries,emPOWER February 2020,empower_medicare_bene
-power_dependent_devices_dme,Power Dependent Medicare Beneficiaries,emPOWER February 2020,empower_power_depend
-pop_per_sq_mile,Population per square mile of land area,2010 Census SF1,density_per_square_mile_of_land_area_population
-housing_per_sq_mile,Housing units per square mile of land area,2010 Census SF1,density_per_square_mile_of_land_area_housing_units
-name,County Name,"NA (DDH,9-33)",F00010
-fips_st,FIPS State Code,NA (Derived From GSA),F00011
-fips_ct,FIPS County Code,NA (Derived From GSA),F00012
-census_region_code,Census Region Code,NA (DHPA HSA ACCESS System),F04439
-census_region_name,Census Region Name,NA (DHPA HSA ACCESS System),F04448
-n_active_mds_total_2017,Tot Active M.D.s Non-Fed & Fed,Non-Fed & Fed;Excl Inact (AMA Phys Master File),F12129-17
-n_active_mds_2017,Total Active M.D.s Non-Federal,Non-Fed; Excl Inact (AMA Phys Master File),F08857-17
-n_hospitals_2017,Total Number Hospitals,NA (AHA Survey Database 17),F08868-17
-n_short_term_gen_hosp_2017,# Short Term General Hosps,Coded '10-1' (AHA Survey Database 17),F08869-17
-n_short_term_comm_hosp_2017,# Short Term Community Hosps,See User Doc For Definition (AHA Survey Database 17),F08872-17
-n_critical_access_hosp_2017,# Critical Access Hospitals,Total Hospitals (AHA Survey Database 17),F14031-17
-n_critical_access_st_gen_hosp_2017,# Critical Access ST Gen Hosps,Short Term General Hospitals (AHA Survey Database 17),F14032-17
-n_hospital_admissions_2017,Hospital Admissions,Total Hospitals (AHA Survey Database 17),F08909-17
-n_st_gen_hosp_admissions_2017,Short Term Gen Hosp Admissions,NA (AHA Survey Database 17),F08910-17
-n_st_comm_hosp_admissions_2017,Short Term Community Hosp Admis,NA (AHA Survey Database 17),F08912-17
-prev_hosp_stays_rate_2017,Preventable Hospital Stays Rate,Medicare FFS Enrollees (County Health Rankings F),F15581-16
-n_hospital_beds_2017,Hospital Beds,Total Hospitals (AHA Survey Database 17),F08921-17
-n_st_gen_hosp_beds_2017,Short Term General Hosp Beds,Coded '10-1' (AHA Survey Database 17),F08922-17
-n_st_comm_hosp_beds_2017,Short Term Community Hosp Beds,NA (AHA Survey Database 17),F08925-17
-n_hosp_nursing_home_beds_2017,"Nursing Home Beds, Total Hosp",Total Hospitals (AHA Survey Database 17),F14049-17
-n_licensed_beds_all_hosp_2017,"Licensed Beds, Total Hospital",Incl Nurs Home;Total Hosps (AHA Survey Database 17),F14041-17
-n_licensed_beds_st_hosp_2017,"Licensed Beds, Short Term Hosp",Incl Nurs Homes (AHA Survey Database 17),F14042-17
-n_st_gen_hosp_lt50_beds_2017,"# ST Gen Hosp, 006-049 Beds",NA (AHA Survey Database 17),F11386-17
-n_st_gen_hosp_lt100_beds_2017,"# ST Gen Hosp, 050-099 Beds",NA (AHA Survey Database 17),F11387-17
-n_st_gen_hosp_lt200_bed_2017,"# ST Gen Hosp, 100-199 Beds",NA (AHA Survey Database 17),F11388-17
-n_st_gen_hosp_lt300_bed_2017,"# ST Gen Hosp, 200-299 Beds",NA (AHA Survey Database 17),F11389-17
-n_st_gen_hosp_gt300_bed_2017,"# ST Gen Hosp, 300+ Beds",NA (AHA Survey Database 17),F11390-17
-n_hosp_with_medsurg_icu_2017,# Hosp W/Medical/Surg Intens Cr,Short Term General Hospitals (AHA Survey Database 17),F12565-17
-n_hosp_with_cardiac_icu_2017,# Hosp W/Cardiac Intensive Care,Short Term General Hospitals (AHA Survey Database 17),F12566-17
-n_hosp_with_neonatal_icu_2017,# Hosp W/Neonatal Intens Care,Short Term General Hospitals (AHA Survey Database 17),F12567-17
-n_hosp_with_peds_icu_2017,# Hosp W/Pediatric Intens Care,Short Term General Hospitals (AHA Survey Database 17),F12569-17
-n_hosp_with_burn_icu_2017,# Hosp W/Burn Care,Short Term General Hospitals (AHA Survey Database 17),F12570-17
-n_hosp_with_other_icu_2017,# Hosp W/Other Intensive Care,Short Term General Hospitals (AHA Survey Database 17),F13310-17
-n_hosp_airborn_infec_iso_rooms_2017,# Hosp W/Airborne Inf Isol Room,Short Term General Hospitals (AHA Survey Database 17),F13928-17
-n_hosp_with_ed_2017,# Hosp W/Emergency Department,Short Term General Hospitals (AHA Survey Database 17),F12592-17
-n_hosp_with_ct_2017,# Hosp W/C.T. Scanner,Short Term General Hospitals (AHA Survey Database 17),F12625-17
-n_hosp_with_telehealth_eicu_2017,# Hosp W/Telehealth eICU,Short Term General Hospitals (AHA Survey Database 17),F15576-17
-n_hosp_telemed_postdischarge_2017,#Hsp W/Telhlth Monitor Post Dis,Short Term General Hospitals (AHA Survey Database 17),F15579-17
-n_hosp_telemed_chronic_care_2017,#Hsp W/Telhlth Monitor Chron Cr,Short Term General Hospitals (AHA Survey Database 17),F15580-17
-n_hosp_with_urgent_care_2017,# Hosp W/Urgent Care Center,Short Term General Hospitals (AHA Survey Database 17),F12640-17
-n_medsurg_icu_beds_2017,"Med/Surg Intens Cr, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09139-17
-n_cardiac_icu_beds_2017,"Cardiac Intens Cr, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09133-17
-n_neonatal_icu_beds_2017,"Neonatal Intens Cr, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09145-17
-n_peds_icu_beds_2017,"Pediatric Intens Cr, Bed Set Up",Short Term General Hospitals (AHA Survey Database 17),F09163-17
-n_burn_icu_beds_2017,"Burn Care, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09127-17
-n_other_icu_beds_2017,"Other Intensive Cr, Bed Set Up",Short Term General Hospitals (AHA Survey Database 17),F13309-17
-n_inpatient_beds_2017,"Total Inpatient, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09047-17
-total_hosp_ftes_2017,# FTE Total Hospital Personnel,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F12668-17
-dist_st_hosp_00_04_services_2017,Dist Hosp By 00 - 04 Services,Short Term General Hospitals (AHA Survey Database 17),F09537-17
-dist_other_hosp_00_04_services_2017,Dist Hosp By 00 - 04 Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09538-17
-dist_st_hosp_05_14_services_2017,Dist Hosp By 05 - 14 Services,Short Term General Hospitals (AHA Survey Database 17),F09539-17
-dist_other_hosp_05_14_services_2017,Dist Hosp By 05 - 14 Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09540-17
-dist_st_hosp_15_24_services_2017,Dist Hosp By 15 - 24 Services,Short Term General Hospitals (AHA Survey Database 17),F09541-17
-dist_other_hosp_15_24_services_2017,Dist Hosp By 15 - 24 Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09542-17
-dist_st_hosp_25_services_2017,Dist Hosp By 25+ Services,Short Term General Hospitals (AHA Survey Database 17),F09543-17
-dist_other_hosp_25_services_2017,Dist Hosp By 25+ Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09544-17
-n_skilled_nursing_2017,# Skilled Nursing Facilities,Certified Medicare Providers (CMS Provider of Services),F13211-18
-n_fac_nursing_home_beds_2018,Nursing Facilities Total Beds,Certified Medicare Providers (CMS Provider of Services),F13216-18
-n_fqhcs_2018,# Fed Qualified Health Centers,Certified Medicare Providers (CMS Provider of Services),F13320-18
-n_patient_days_short_term_2017,Inpatient Days in ST Gen Hosp,NA (AHA Survey Database 17),F09546-17
-dist_st_hosp_00_39p_util_rate_2017,Dist Hosp By 00 - 39% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11391-17
-dist_st_hosp_40_59p_util_rate_2017,Dist Hosp By 40 - 59% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11392-17
-dist_st_hosp_60_79p_util_rate_2017,Dist Hosp By 60 - 79% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11393-17
-dist_st_hosp_80p_util_rate_2017,Dist Hosp By 80+% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11394-17
-n_outpatient_visits_st_gen_hosp_2017,Outpat Visits in ST Gen Hosp,Emer Dept + Other OP Visits (AHA Survey Database 17),F09566-17
-n_outpatient_visits_va_hosp_2017,Outpatient Visits in VA Hosp,Emer Dept + Other OP Visits (AHA Survey Database 17),F09571-17
-n_ed_visits_st_hosp_2017,Emergency Department Visits,Short Term General Hospitals (AHA Survey Database 17),F09572-17
-n_ed_visits_other_hosp_2017,Emergency Department Visits,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09574-17
-n_airborn_infec_iso_rooms_2017,# Airborne Infection Isol Rooms,Short Term General Hospitals (AHA Survey Database 17),F13929-17
-n_pop_2018,Population Estimate,Whole Numbers (Census County Pop Est),F11984-18
-census_pop_2010,Census Population,Whole Numbers (2010 Census Redistrict),F04530-10
-census_pop_2000,Census Population,Whole Numbers (2000 Census GCT-PL),F04530-00
-n_pop_2017,Population (Persons),Whole Numbers (REIS),F13182-17
-n_total_male_2017,Pop Total Male,"Whole Numbers, Estimates (Census County Char File)",F13906-17
-n_total_female_2017,Pop Total Female,"Whole Numbers, Estimates (Census County Char File)",F13907-17
-n_male_60_64_2010,Pop Male 60-64,"Table P12, Whole Numbers (2010 Census SF1)",F06724-10
-n_male_65_74_2010,Pop Male 65-74,"Table P12, Whole Numbers (2010 Census SF1)",F06726-10
-n_male_75_84_2010,Pop Male 75-84,"Table P12, Whole Numbers (2010 Census SF1)",F11640-10
-n_pop_65yo_2017,Population Estimate 65+,"Whole Numbers, Estimates (Census County Char File)",F14083-17
-n_pop_65yo_2010,Population 65+,"Table P12, Whole Numbers (2010 Census SF1)",F14840-10
-n_medicare_bene_2017,Medicare FFS Beneficiaries,Fee for Service (Medicare Geographic Var),F15288-17
-n_medicare_eligible_2018,# Eligible for Medicare,NA (CMS MA Penetration),F13191-18
-n_households_2010,Number Households,Table P15 (2010 Census SF1),F08745-10
-avg_hh_size_2010,Average Household Size,"Table P17, (.01) (2010 Census SF1)",F13513-10
-n_person_below_deep_poverty_level_2017,# Persons in Deep Poverty,Table B17024 (2013-17 Census ACS),F15418-13
-p_people_below_deep_poverty_2017,% Persons in Deep Poverty,(.1) Table B17024 (2013-17 Census ACS),F15419-13
-n_65yo_below_deep_poverty_2017,# Persons 65+ in Deep Poverty,Table B17024 (2013-17 Census ACS),F15424-13
-p_65yo_below_poverty_level_2017,% Persons 65+ in Deep Poverty,(.1) Table B17024 (2013-17 Census ACS),F15425-13
-n_people_below_poverty_level_2017,# Persons Below Poverty Level,Table B17001 (2013-17 Census ACS),F14419-13
-n_65yo_below_poverty_level_2017,# Pers 65+ Below Poverty Level,Table B17001 (2013-17 Census ACS),F14429-13
-p_18_64_no_insurance_allincome,% 18-64 without Health Ins,(.1) Estimates (Census SAHIE),F15498-17
-p_18_64_no_insurance_200poverty,%18-64 no HlthIns <=200% Povrty,(.1) Estimates (Census SAHIE),F15514-17
-p_18_64_no_insurance_400poverty,%18-64 no HlthIns <=400% Povrty,(.1) Estimates (Census SAHIE),F15518-17
-prop_diabetes,Diagnosed Diabetes; Total (Total); Adults Aged 20+ Years; Age-Adjusted Percentage; U.S. Counties; 2016,CDC's Behavioral Risk Factor Surveillance System (BRFSS) and from the US Census Bureau's Population Estimates Program,NA
-CHD_hosp,"Coronary Heart Disease Hospitalization Rate per 1,000 Medicare Beneficiaries, 65+, All Races/Ethnicities, Both Genders, 2014-2016; smoothed","Centers for Medicare and Medicaid Services Medicare Provider Analysis and Review (MEDPAR) file, Part A; Coronary Heart Disease: ICD-9 410-414, 429.2; principle (i.e., first-listed) diagnosis",NA
-ob_prev_adj,"Total, Adults Aged 20+ Years, Age-Adjusted Percentage, Natural Breaks, All Counties, 2016; BMI >= 30 based on self-report height and weight",CDC's Behavioral Risk Factor Surveillance System (BRFSS) and from the US Census Bureau's Population Estimates Program,NA
-hypertension_hosp,"Hypertension Hospitalization Rate per 1,000 Medicare Beneficiaries, 65+, All Races/Ethnicities, Both Genders, 2014-2016; smoothed","Centers for Medicare and Medicaid Services Medicare Provider Analysis and Review (MEDPAR) file, Part A; Coronary Heart Disease: Hypertension: 401-405; principle (i.e., first-listed) diagnosisHypertension: ICD-9 Hypertension: 401-405; principle (i.e., first-listed) diagnosis.",NA
-prop_edu_less_high_school,"Percentage without High School Diploma, Ages 25+, 2013-2017 (5-year)",ACS,NA
-prop_edu_less_college,"Percentage without 4+ Years College, Ages 25+, 2013-2017 (5-year)",ACS,NA
-prop_food_stamp_SNAP_recip,"Percentage Food Stamp/Supplemental Nutrition Assistance Program Recipients, 2015",Health Resources and Services Administration; Area Health Resources File,NA
-median_HHI,"Median Household Income (in thousands of $), 2016",U.S. Census Bureau (SAIPE); Small Area Income and Policy Estimates,NA
-income_inequal,"Income Inequality (Gini Index), 2013-2017 (5-year)",ACS,NA
-prop_poverty,"Percentage Living in Poverty, All Ages, 2016",U.S. Census Bureau (SAIPE); Small Area Income and Policy Estimates,NA
-unemployment_rate,"Unemployment Rate, Ages 16+, 2017","U.S. Bureau of Labor Statistics; Local Area Unemployment Statistics",NA
-annual_PM2.5,"Annual Average Ambient Concentrations of PM2.5, 2014","CDC Environmental Public Health Tracking Network; Original data source: Environmental Protection Agency's Air Quality System",NA
-prop_uninsured,"Percentage without Health Insurance, Under Age 65, 2016","U.S. Census Bureau (SAHIE)Small Area Health Insurance Estimates",NA
-prop_medicaid_eligible,"Percentage Eligible for Medicaid, All Ages, 2012",Health Resources and Services Administration; Area Health Resources File,NA
-geoid,id,ACS 5-year 2018 Table DP02,GEO_ID
-n_households,Estimate!!HOUSEHOLDS BY TYPE!!Total households,ACS 5-year 2018 Table DP02,DP02_0001E
-avg_hh_size,Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Nonfamily households!!Householder living alone!!65 years and over,ACS 5-year 2018 Table DP02,DP02_0015E
-n_65_living_alone,Percent Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Nonfamily households!!Householder living alone!!65 years and over,ACS 5-year 2018 Table DP02,DP02_0012E
-p_65_living_alone,Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Average household size,ACS 5-year 2018 Table DP02,DP02_0012PE
-n_hh_grandparents_with_under18,Estimate!!GRANDPARENTS!!Number of grandparents living with own grandchildren under 18 years,ACS 5-year 2018 Table DP02,DP02_0043E
-p_hh_grandparents_with_under18,Percent Estimate!!GRANDPARENTS!!Number of grandparents living with own grandchildren under 18 years,ACS 5-year 2018 Table DP02,DP02_0043PE
-n_hh_with_computer,Estimate!!PLACE OF BIRTH!!Total population!!Native,ACS 5-year 2018 Table DP02,DP02_0151E
-p_hh_with_computer,Percent Estimate!!PLACE OF BIRTH!!Total population!!Native,ACS 5-year 2018 Table DP02,DP02_0151PE
-n_hh_with_broadband,Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a computer,ACS 5-year 2018 Table DP02,DP02_0152E
-p_hh_with_broadband,Percent Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a computer,ACS 5-year 2018 Table DP02,DP02_0152PE
-n_usa_native,Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a broadband Internet subscription,ACS 5-year 2018 Table DP02,DP02_0087E
-p_usa_native,Percent Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a broadband Internet subscription,ACS 5-year 2018 Table DP02,DP02_0087PE
-fips,5-digit FIPS Code,RWJF County Health Rankings,fipscode
-premature_mort,Premature death raw value,RWJF County Health Rankings via NCHS 2016-2018 NVSS data,v001_rawvalue
-severe_housing_problems,Severe housing problems raw value,RWJF County Health Rankings via USHUD Comprehensive Housing Affordability Strategy data (2012-2016),v136_rawvalue
-severe_housing_cost_burden,Severe housing cost burden raw value,RWJF County Health Rankings via ACS 2014-2018 — Percentage of households that spend more than 50% of their income on housing,v154_rawvalue
-gini_coef,Estimate!!Gini Index,ACS 5-year 2018,B19083_001E
-p_hh_renter,Estimate!!Total!!Total households!!HOUSING TENURE!!Renter-occupied housing units,ACS 5-year 2018 Table S1101,S1101_C01_020E
-p_group_quarters,Percent of the population living in group quarters,ACS 5-year 2018,pctGQ
-p_crowded_housing,"The number of occupied housing units with more than one occupant per room divided by the number of occupied housing units, times 100, for the total population and by race/ethnicity.",Diversity Data Kids (25014_1_P_050_5_crowded_housing_race),total_est
-high_housing_cost,"The share of children living in households where more than 30 percent of the monthly income was spent on rent, mortgage payments, taxes, insurance, and/or related expenses.",Diversity Data Kids (25106_1_C_050_5_hh_high_housing_costs),total_est
+var_name,var_source,var_label,var_notes_source,var_original
+age0,National Center for Health Statistics,2018 Population in age group 0-4,NCHS Vintage 2018,NA
+age5,National Center for Health Statistics,2018 Population in age group 5-9,NCHS Vintage 2018,NA
+age10,National Center for Health Statistics,2018 Population in age group 10-14,NCHS Vintage 2018,NA
+age15,National Center for Health Statistics,2018 Population in age group 15-19,NCHS Vintage 2018,NA
+age20,National Center for Health Statistics,2018 Population in age group 20-24,NCHS Vintage 2018,NA
+age25,National Center for Health Statistics,2018 Population in age group 25-29,NCHS Vintage 2018,NA
+age30,National Center for Health Statistics,2018 Population in age group 30-34,NCHS Vintage 2018,NA
+age35,National Center for Health Statistics,2018 Population in age group 35-39,NCHS Vintage 2018,NA
+age40,National Center for Health Statistics,2018 Population in age group 40-44,NCHS Vintage 2018,NA
+age45,National Center for Health Statistics,2018 Population in age group 45-49,NCHS Vintage 2018,NA
+age50,National Center for Health Statistics,2018 Population in age group 50-54,NCHS Vintage 2018,NA
+age55,National Center for Health Statistics,2018 Population in age group 55-59,NCHS Vintage 2018,NA
+age60,National Center for Health Statistics,2018 Population in age group 60-64,NCHS Vintage 2018,NA
+age65,National Center for Health Statistics,2018 Population in age group 65-69,NCHS Vintage 2018,NA
+age70,National Center for Health Statistics,2018 Population in age group 70-74,NCHS Vintage 2018,NA
+age75,National Center for Health Statistics,2018 Population in age group 75-79,NCHS Vintage 2018,NA
+age80,National Center for Health Statistics,2018 Population in age group 80-84,NCHS Vintage 2018,NA
+age85,National Center for Health Statistics,2018 Population in age group 85-Inf,NCHS Vintage 2018,NA
+medicare_benes,US Dept. of Health and Human Services emPOWER data,Medicare Beneficiaries,emPOWER February 2020,empower_medicare_bene
+power_dependent_devices_dme,US Dept. of Health and Human Services emPOWER data,Power Dependent Medicare Beneficiaries,emPOWER February 2020,empower_power_depend
+pop_per_sq_mile,US Census Bureau,Population per square mile of land area,2010 Census SF1,density_per_square_mile_of_land_area_population
+housing_per_sq_mile,US Census Bureau,Housing units per square mile of land area,2010 Census SF1,density_per_square_mile_of_land_area_housing_units
+name,Area Health Resources Files,County Name,"NA (DDH,9-33)",F00010
+fips_st,Area Health Resources Files,FIPS State Code,NA (Derived From GSA),F00011
+fips_ct,Area Health Resources Files,FIPS County Code,NA (Derived From GSA),F00012
+census_region_code,Area Health Resources Files,Census Region Code,NA (DHPA HSA ACCESS System),F04439
+census_region_name,Area Health Resources Files,Census Region Name,NA (DHPA HSA ACCESS System),F04448
+n_active_mds_total_2017,Area Health Resources Files,Tot Active M.D.s Non-Fed & Fed,Non-Fed & Fed;Excl Inact (AMA Phys Master File),F12129-17
+n_active_mds_2017,Area Health Resources Files,Total Active M.D.s Non-Federal,Non-Fed; Excl Inact (AMA Phys Master File),F08857-17
+n_hospitals_2017,Area Health Resources Files,Total Number Hospitals,NA (AHA Survey Database 17),F08868-17
+n_short_term_gen_hosp_2017,Area Health Resources Files,# Short Term General Hosps,Coded '10-1' (AHA Survey Database 17),F08869-17
+n_short_term_comm_hosp_2017,Area Health Resources Files,# Short Term Community Hosps,See User Doc For Definition (AHA Survey Database 17),F08872-17
+n_critical_access_hosp_2017,Area Health Resources Files,# Critical Access Hospitals,Total Hospitals (AHA Survey Database 17),F14031-17
+n_critical_access_st_gen_hosp_2017,Area Health Resources Files,# Critical Access ST Gen Hosps,Short Term General Hospitals (AHA Survey Database 17),F14032-17
+n_hospital_admissions_2017,Area Health Resources Files,Hospital Admissions,Total Hospitals (AHA Survey Database 17),F08909-17
+n_st_gen_hosp_admissions_2017,Area Health Resources Files,Short Term Gen Hosp Admissions,NA (AHA Survey Database 17),F08910-17
+n_st_comm_hosp_admissions_2017,Area Health Resources Files,Short Term Community Hosp Admis,NA (AHA Survey Database 17),F08912-17
+prev_hosp_stays_rate_2017,Area Health Resources Files,Preventable Hospital Stays Rate,Medicare FFS Enrollees (County Health Rankings F),F15581-16
+n_hospital_beds_2017,Area Health Resources Files,Hospital Beds,Total Hospitals (AHA Survey Database 17),F08921-17
+n_st_gen_hosp_beds_2017,Area Health Resources Files,Short Term General Hosp Beds,Coded '10-1' (AHA Survey Database 17),F08922-17
+n_st_comm_hosp_beds_2017,Area Health Resources Files,Short Term Community Hosp Beds,NA (AHA Survey Database 17),F08925-17
+n_hosp_nursing_home_beds_2017,Area Health Resources Files,"Nursing Home Beds, Total Hosp",Total Hospitals (AHA Survey Database 17),F14049-17
+n_licensed_beds_all_hosp_2017,Area Health Resources Files,"Licensed Beds, Total Hospital",Incl Nurs Home;Total Hosps (AHA Survey Database 17),F14041-17
+n_licensed_beds_st_hosp_2017,Area Health Resources Files,"Licensed Beds, Short Term Hosp",Incl Nurs Homes (AHA Survey Database 17),F14042-17
+n_st_gen_hosp_lt50_beds_2017,Area Health Resources Files,"# ST Gen Hosp, 006-049 Beds",NA (AHA Survey Database 17),F11386-17
+n_st_gen_hosp_lt100_beds_2017,Area Health Resources Files,"# ST Gen Hosp, 050-099 Beds",NA (AHA Survey Database 17),F11387-17
+n_st_gen_hosp_lt200_bed_2017,Area Health Resources Files,"# ST Gen Hosp, 100-199 Beds",NA (AHA Survey Database 17),F11388-17
+n_st_gen_hosp_lt300_bed_2017,Area Health Resources Files,"# ST Gen Hosp, 200-299 Beds",NA (AHA Survey Database 17),F11389-17
+n_st_gen_hosp_gt300_bed_2017,Area Health Resources Files,"# ST Gen Hosp, 300+ Beds",NA (AHA Survey Database 17),F11390-17
+n_hosp_with_medsurg_icu_2017,Area Health Resources Files,# Hosp W/Medical/Surg Intens Cr,Short Term General Hospitals (AHA Survey Database 17),F12565-17
+n_hosp_with_cardiac_icu_2017,Area Health Resources Files,# Hosp W/Cardiac Intensive Care,Short Term General Hospitals (AHA Survey Database 17),F12566-17
+n_hosp_with_neonatal_icu_2017,Area Health Resources Files,# Hosp W/Neonatal Intens Care,Short Term General Hospitals (AHA Survey Database 17),F12567-17
+n_hosp_with_peds_icu_2017,Area Health Resources Files,# Hosp W/Pediatric Intens Care,Short Term General Hospitals (AHA Survey Database 17),F12569-17
+n_hosp_with_burn_icu_2017,Area Health Resources Files,# Hosp W/Burn Care,Short Term General Hospitals (AHA Survey Database 17),F12570-17
+n_hosp_with_other_icu_2017,Area Health Resources Files,# Hosp W/Other Intensive Care,Short Term General Hospitals (AHA Survey Database 17),F13310-17
+n_hosp_airborn_infec_iso_rooms_2017,Area Health Resources Files,# Hosp W/Airborne Inf Isol Room,Short Term General Hospitals (AHA Survey Database 17),F13928-17
+n_hosp_with_ed_2017,Area Health Resources Files,# Hosp W/Emergency Department,Short Term General Hospitals (AHA Survey Database 17),F12592-17
+n_hosp_with_ct_2017,Area Health Resources Files,# Hosp W/C.T. Scanner,Short Term General Hospitals (AHA Survey Database 17),F12625-17
+n_hosp_with_telehealth_eicu_2017,Area Health Resources Files,# Hosp W/Telehealth eICU,Short Term General Hospitals (AHA Survey Database 17),F15576-17
+n_hosp_telemed_postdischarge_2017,Area Health Resources Files,#Hsp W/Telhlth Monitor Post Dis,Short Term General Hospitals (AHA Survey Database 17),F15579-17
+n_hosp_telemed_chronic_care_2017,Area Health Resources Files,#Hsp W/Telhlth Monitor Chron Cr,Short Term General Hospitals (AHA Survey Database 17),F15580-17
+n_hosp_with_urgent_care_2017,Area Health Resources Files,# Hosp W/Urgent Care Center,Short Term General Hospitals (AHA Survey Database 17),F12640-17
+n_medsurg_icu_beds_2017,Area Health Resources Files,"Med/Surg Intens Cr, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09139-17
+n_cardiac_icu_beds_2017,Area Health Resources Files,"Cardiac Intens Cr, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09133-17
+n_neonatal_icu_beds_2017,Area Health Resources Files,"Neonatal Intens Cr, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09145-17
+n_peds_icu_beds_2017,Area Health Resources Files,"Pediatric Intens Cr, Bed Set Up",Short Term General Hospitals (AHA Survey Database 17),F09163-17
+n_burn_icu_beds_2017,Area Health Resources Files,"Burn Care, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09127-17
+n_other_icu_beds_2017,Area Health Resources Files,"Other Intensive Cr, Bed Set Up",Short Term General Hospitals (AHA Survey Database 17),F13309-17
+n_inpatient_beds_2017,Area Health Resources Files,"Total Inpatient, Beds Set Up",Short Term General Hospitals (AHA Survey Database 17),F09047-17
+total_hosp_ftes_2017,Area Health Resources Files,# FTE Total Hospital Personnel,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F12668-17
+dist_st_hosp_00_04_services_2017,Area Health Resources Files,Dist Hosp By 00 - 04 Services,Short Term General Hospitals (AHA Survey Database 17),F09537-17
+dist_other_hosp_00_04_services_2017,Area Health Resources Files,Dist Hosp By 00 - 04 Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09538-17
+dist_st_hosp_05_14_services_2017,Area Health Resources Files,Dist Hosp By 05 - 14 Services,Short Term General Hospitals (AHA Survey Database 17),F09539-17
+dist_other_hosp_05_14_services_2017,Area Health Resources Files,Dist Hosp By 05 - 14 Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09540-17
+dist_st_hosp_15_24_services_2017,Area Health Resources Files,Dist Hosp By 15 - 24 Services,Short Term General Hospitals (AHA Survey Database 17),F09541-17
+dist_other_hosp_15_24_services_2017,Area Health Resources Files,Dist Hosp By 15 - 24 Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09542-17
+dist_st_hosp_25_services_2017,Area Health Resources Files,Dist Hosp By 25+ Services,Short Term General Hospitals (AHA Survey Database 17),F09543-17
+dist_other_hosp_25_services_2017,Area Health Resources Files,Dist Hosp By 25+ Services,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09544-17
+n_skilled_nursing_2017,Area Health Resources Files,# Skilled Nursing Facilities,Certified Medicare Providers (CMS Provider of Services),F13211-18
+n_fac_nursing_home_beds_2018,Area Health Resources Files,Nursing Facilities Total Beds,Certified Medicare Providers (CMS Provider of Services),F13216-18
+n_fqhcs_2018,Area Health Resources Files,# Fed Qualified Health Centers,Certified Medicare Providers (CMS Provider of Services),F13320-18
+n_patient_days_short_term_2017,Area Health Resources Files,Inpatient Days in ST Gen Hosp,NA (AHA Survey Database 17),F09546-17
+dist_st_hosp_00_39p_util_rate_2017,Area Health Resources Files,Dist Hosp By 00 - 39% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11391-17
+dist_st_hosp_40_59p_util_rate_2017,Area Health Resources Files,Dist Hosp By 40 - 59% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11392-17
+dist_st_hosp_60_79p_util_rate_2017,Area Health Resources Files,Dist Hosp By 60 - 79% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11393-17
+dist_st_hosp_80p_util_rate_2017,Area Health Resources Files,Dist Hosp By 80+% Util Rate,Short Term General Hospitals (AHA Survey Database 17),F11394-17
+n_outpatient_visits_st_gen_hosp_2017,Area Health Resources Files,Outpat Visits in ST Gen Hosp,Emer Dept + Other OP Visits (AHA Survey Database 17),F09566-17
+n_outpatient_visits_va_hosp_2017,Area Health Resources Files,Outpatient Visits in VA Hosp,Emer Dept + Other OP Visits (AHA Survey Database 17),F09571-17
+n_ed_visits_st_hosp_2017,Area Health Resources Files,Emergency Department Visits,Short Term General Hospitals (AHA Survey Database 17),F09572-17
+n_ed_visits_other_hosp_2017,Area Health Resources Files,Emergency Department Visits,ST Non-Gen + Long Term Hosps (AHA Survey Database 17),F09574-17
+n_airborn_infec_iso_rooms_2017,Area Health Resources Files,# Airborne Infection Isol Rooms,Short Term General Hospitals (AHA Survey Database 17),F13929-17
+n_pop_2018,Area Health Resources Files,Population Estimate,Whole Numbers (Census County Pop Est),F11984-18
+census_pop_2010,Area Health Resources Files,Census Population,Whole Numbers (2010 Census Redistrict),F04530-10
+census_pop_2000,Area Health Resources Files,Census Population,Whole Numbers (2000 Census GCT-PL),F04530-00
+n_pop_2017,Area Health Resources Files,Population (Persons),Whole Numbers (REIS),F13182-17
+n_total_male_2017,Area Health Resources Files,Pop Total Male,"Whole Numbers, Estimates (Census County Char File)",F13906-17
+n_total_female_2017,Area Health Resources Files,Pop Total Female,"Whole Numbers, Estimates (Census County Char File)",F13907-17
+n_male_60_64_2010,Area Health Resources Files,Pop Male 60-64,"Table P12, Whole Numbers (2010 Census SF1)",F06724-10
+n_male_65_74_2010,Area Health Resources Files,Pop Male 65-74,"Table P12, Whole Numbers (2010 Census SF1)",F06726-10
+n_male_75_84_2010,Area Health Resources Files,Pop Male 75-84,"Table P12, Whole Numbers (2010 Census SF1)",F11640-10
+n_pop_65yo_2017,Area Health Resources Files,Population Estimate 65+,"Whole Numbers, Estimates (Census County Char File)",F14083-17
+n_pop_65yo_2010,Area Health Resources Files,Population 65+,"Table P12, Whole Numbers (2010 Census SF1)",F14840-10
+n_medicare_bene_2017,Area Health Resources Files,Medicare FFS Beneficiaries,Fee for Service (Medicare Geographic Var),F15288-17
+n_medicare_eligible_2018,Area Health Resources Files,# Eligible for Medicare,NA (CMS MA Penetration),F13191-18
+n_households_2010,Area Health Resources Files,Number Households,Table P15 (2010 Census SF1),F08745-10
+avg_hh_size_2010,Area Health Resources Files,Average Household Size,"Table P17, (.01) (2010 Census SF1)",F13513-10
+n_person_below_deep_poverty_level_2017,Area Health Resources Files,# Persons in Deep Poverty,Table B17024 (2013-17 Census ACS),F15418-13
+p_people_below_deep_poverty_2017,Area Health Resources Files,% Persons in Deep Poverty,(.1) Table B17024 (2013-17 Census ACS),F15419-13
+n_65yo_below_deep_poverty_2017,Area Health Resources Files,# Persons 65+ in Deep Poverty,Table B17024 (2013-17 Census ACS),F15424-13
+p_65yo_below_poverty_level_2017,Area Health Resources Files,% Persons 65+ in Deep Poverty,(.1) Table B17024 (2013-17 Census ACS),F15425-13
+n_people_below_poverty_level_2017,Area Health Resources Files,# Persons Below Poverty Level,Table B17001 (2013-17 Census ACS),F14419-13
+n_65yo_below_poverty_level_2017,Area Health Resources Files,# Pers 65+ Below Poverty Level,Table B17001 (2013-17 Census ACS),F14429-13
+p_18_64_no_insurance_allincome,Area Health Resources Files,% 18-64 without Health Ins,(.1) Estimates (Census SAHIE),F15498-17
+p_18_64_no_insurance_200poverty,Area Health Resources Files,%18-64 no HlthIns <=200% Povrty,(.1) Estimates (Census SAHIE),F15514-17
+p_18_64_no_insurance_400poverty,Area Health Resources Files,%18-64 no HlthIns <=400% Povrty,(.1) Estimates (Census SAHIE),F15518-17
+prop_diabetes,Centers for Disease Control and Prevention,Diagnosed Diabetes; Total (Total); Adults Aged 20+ Years; Age-Adjusted Percentage; U.S. Counties; 2016,CDC's Behavioral Risk Factor Surveillance System (BRFSS) and from the US Census Bureau's Population Estimates Program,NA
+CHD_hosp,Centers for Disease Control and Prevention,"Coronary Heart Disease Hospitalization Rate per 1,000 Medicare Beneficiaries, 65+, All Races/Ethnicities, Both Genders, 2014-2016; smoothed","Centers for Medicare and Medicaid Services Medicare Provider Analysis and Review (MEDPAR) file, Part A; Coronary Heart Disease: ICD-9 410-414, 429.2; principle (i.e., first-listed) diagnosis",NA
+ob_prev_adj,Centers for Disease Control and Prevention,"Total, Adults Aged 20+ Years, Age-Adjusted Percentage, Natural Breaks, All Counties, 2016; BMI >= 30 based on self-report height and weight",CDC's Behavioral Risk Factor Surveillance System (BRFSS) and from the US Census Bureau's Population Estimates Program,NA
+hypertension_hosp,Centers for Disease Control and Prevention,"Hypertension Hospitalization Rate per 1,000 Medicare Beneficiaries, 65+, All Races/Ethnicities, Both Genders, 2014-2016; smoothed","Centers for Medicare and Medicaid Services Medicare Provider Analysis and Review (MEDPAR) file, Part A; Coronary Heart Disease: Hypertension: 401-405; principle (i.e., first-listed) diagnosisHypertension: ICD-9 Hypertension: 401-405; principle (i.e., first-listed) diagnosis.",NA
+prop_edu_less_high_school,Centers for Disease Control and Prevention,"Percentage without High School Diploma, Ages 25+, 2013-2017 (5-year)",ACS,NA
+prop_edu_less_college,Centers for Disease Control and Prevention,"Percentage without 4+ Years College, Ages 25+, 2013-2017 (5-year)",ACS,NA
+prop_food_stamp_SNAP_recip,Centers for Disease Control and Prevention,"Percentage Food Stamp/Supplemental Nutrition Assistance Program Recipients, 2015",Health Resources and Services Administration; Area Health Resources File,NA
+median_HHI,Centers for Disease Control and Prevention,"Median Household Income (in thousands of $), 2016",U.S. Census Bureau (SAIPE); Small Area Income and Policy Estimates,NA
+income_inequal,Centers for Disease Control and Prevention,"Income Inequality (Gini Index), 2013-2017 (5-year)",ACS,NA
+prop_poverty,Centers for Disease Control and Prevention,"Percentage Living in Poverty, All Ages, 2016",U.S. Census Bureau (SAIPE); Small Area Income and Policy Estimates,NA
+unemployment_rate,Centers for Disease Control and Prevention,"Unemployment Rate, Ages 16+, 2017","U.S. Bureau of Labor Statistics; Local Area Unemployment Statistics",NA
+annual_PM2.5,Centers for Disease Control and Prevention,"Annual Average Ambient Concentrations of PM2.5, 2014","CDC Environmental Public Health Tracking Network; Original data source: Environmental Protection Agency's Air Quality System",NA
+prop_uninsured,Centers for Disease Control and Prevention,"Percentage without Health Insurance, Under Age 65, 2016","U.S. Census Bureau (SAHIE)Small Area Health Insurance Estimates",NA
+prop_medicaid_eligible,Centers for Disease Control and Prevention,"Percentage Eligible for Medicaid, All Ages, 2012",Health Resources and Services Administration; Area Health Resources File,NA
+geoid,US Census Bureau,id,ACS 5-year 2018 Table DP02,GEO_ID
+n_households,US Census Bureau,Estimate!!HOUSEHOLDS BY TYPE!!Total households,ACS 5-year 2018 Table DP02,DP02_0001E
+avg_hh_size,US Census Bureau,Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Nonfamily households!!Householder living alone!!65 years and over,ACS 5-year 2018 Table DP02,DP02_0015E
+n_65_living_alone,US Census Bureau,Percent Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Nonfamily households!!Householder living alone!!65 years and over,ACS 5-year 2018 Table DP02,DP02_0012E
+p_65_living_alone,US Census Bureau,Estimate!!HOUSEHOLDS BY TYPE!!Total households!!Average household size,ACS 5-year 2018 Table DP02,DP02_0012PE
+n_hh_grandparents_with_under18,US Census Bureau,Estimate!!GRANDPARENTS!!Number of grandparents living with own grandchildren under 18 years,ACS 5-year 2018 Table DP02,DP02_0043E
+p_hh_grandparents_with_under18,US Census Bureau,Percent Estimate!!GRANDPARENTS!!Number of grandparents living with own grandchildren under 18 years,ACS 5-year 2018 Table DP02,DP02_0043PE
+n_hh_with_computer,US Census Bureau,Estimate!!PLACE OF BIRTH!!Total population!!Native,ACS 5-year 2018 Table DP02,DP02_0151E
+p_hh_with_computer,US Census Bureau,Percent Estimate!!PLACE OF BIRTH!!Total population!!Native,ACS 5-year 2018 Table DP02,DP02_0151PE
+n_hh_with_broadband,US Census Bureau,Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a computer,ACS 5-year 2018 Table DP02,DP02_0152E
+p_hh_with_broadband,US Census Bureau,Percent Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a computer,ACS 5-year 2018 Table DP02,DP02_0152PE
+n_usa_native,US Census Bureau,Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a broadband Internet subscription,ACS 5-year 2018 Table DP02,DP02_0087E
+p_usa_native,US Census Bureau,Percent Estimate!!COMPUTERS AND INTERNET USE!!Total households!!With a broadband Internet subscription,ACS 5-year 2018 Table DP02,DP02_0087PE
+fips,Robert Wood Johnson Foundation,5-digit FIPS Code,RWJF County Health Rankings,fipscode
+premature_mort,Robert Wood Johnson Foundation,Premature death raw value,RWJF County Health Rankings via NCHS 2016-2018 NVSS data,v001_rawvalue
+severe_housing_problems,Robert Wood Johnson Foundation,Severe housing problems raw value,RWJF County Health Rankings via USHUD Comprehensive Housing Affordability Strategy data (2012-2016),v136_rawvalue
+severe_housing_cost_burden,Robert Wood Johnson Foundation,Severe housing cost burden raw value,RWJF County Health Rankings via ACS 2014-2018 — Percentage of households that spend more than 50% of their income on housing,v154_rawvalue
+gini_coef,US Census Bureau,Estimate!!Gini Index,ACS 5-year 2018,B19083_001E
+p_hh_renter,US Census Bureau,Estimate!!Total!!Total households!!HOUSING TENURE!!Renter-occupied housing units,ACS 5-year 2018 Table S1101,S1101_C01_020E
+p_group_quarters,US Census Bureau,Percent of the population living in group quarters,ACS 5-year 2018,pctGQ
+p_crowded_housing,Diversity Data for Kids,"The number of occupied housing units with more than one occupant per room divided by the number of occupied housing units, times 100, for the total population and by race/ethnicity.",Diversity Data Kids (25014_1_P_050_5_crowded_housing_race),total_est
+high_housing_cost,Diversity Data for Kids,"The share of children living in households where more than 30 percent of the monthly income was spent on rent, mortgage payments, taxes, insurance, and/or related expenses.",Diversity Data Kids (25106_1_C_050_5_hh_high_housing_costs),total_est
