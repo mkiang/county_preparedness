@@ -1,6 +1,6 @@
-## 06_univariate_maps.R ----
+## 06_supplemental_figures.R ----
 
-## Univariate maps for supplemental materials ----
+## Figures for supplemental materials ----
 ##
 ## Figure S1. Percentage of population 70 years or older, 2018
 ## Figure S2. Percentage of households living in poverty, 2016
@@ -35,6 +35,131 @@ source(here::here("code", "utils.R"))
 ## Data ----
 analytic_df <- readr::read_csv(here::here("data", "analytic_data_wide.csv"))
 plotting_df <- process_to_plotting_df(analytic_df)
+
+## Hospital beds vs main covariates + race/ethnicity ----
+## Beds vs population over 70 ----
+p1 <- mega_plot_bivariate(
+    plotting_df = plotting_df,
+    return_data = TRUE,
+    x_var = hosp_per_capita,
+    x_high = return_rounded_iqr(plotting_df$hosp_per_capita)[2],
+    x_low = return_rounded_iqr(plotting_df$hosp_per_capita)[1],
+    x_label = "Hospital beds per\n100,000 population",
+    rev_x = TRUE, 
+    y_var = p70older,
+    y_high = return_rounded_iqr(plotting_df$p70older)[2],
+    y_low = return_rounded_iqr(plotting_df$p70older)[1],
+    y_label = "Population over 70\nyears of age (%)",
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX1_bed_capacity_age.pdf"),
+    p1$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX1_bed_capacity_age.jpg"),
+    p1$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
+
+## Beds vs poverty ----
+p1 <- mega_plot_bivariate(
+    plotting_df = plotting_df,
+    return_data = TRUE,
+    x_var = hosp_per_capita,
+    x_high = return_rounded_iqr(plotting_df$hosp_per_capita)[2],
+    x_low = return_rounded_iqr(plotting_df$hosp_per_capita)[1],
+    x_label = "Hospital beds per\n100,000 population",
+    rev_x = TRUE, 
+    y_var = p_poverty,
+    y_high = return_rounded_iqr(plotting_df$p_poverty)[2],
+    y_low = return_rounded_iqr(plotting_df$p_poverty)[1],
+    y_label = "Households under\npoverty-line (%)"
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX2_bed_capacity_poverty.pdf"),
+    p1$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX2_bed_capacity_poverty.jpg"),
+    p1$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
+
+## Beds vs group quarters ----
+p1 <- mega_plot_bivariate(
+    plotting_df = plotting_df,
+    return_data = TRUE,
+    x_var = hosp_per_capita,
+    x_high = return_rounded_iqr(plotting_df$hosp_per_capita)[2],
+    x_low = return_rounded_iqr(plotting_df$hosp_per_capita)[1],
+    x_label = "Hospital beds per\n100,000 population",
+    rev_x = TRUE, 
+    y_var = p_group_quarters,
+    y_high = return_rounded_iqr(plotting_df$p_group_quarters)[2],
+    y_low = return_rounded_iqr(plotting_df$p_group_quarters)[1],
+    y_label = "Population living\nin group quarters (%)",
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX3_bed_capacity_group_quarters.pdf"),
+    p1$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX3_bed_capacity_group_quarters.jpg"),
+    p1$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
+
+## Beds vs nonwhite ----
+p1 <- mega_plot_bivariate(
+    plotting_df = plotting_df,
+    return_data = TRUE,
+    x_var = hosp_per_capita,
+    x_high = return_rounded_iqr(plotting_df$hosp_per_capita)[2],
+    x_low = return_rounded_iqr(plotting_df$hosp_per_capita)[1],
+    x_label = "Hospital beds per\n100,000 population",
+    rev_x = TRUE, 
+    y_var = p_nonwhite,
+    y_high = return_rounded_iqr(plotting_df$p_nonwhite)[2],
+    y_low = return_rounded_iqr(plotting_df$p_nonwhite)[1],
+    y_label = "Population non-white (%)",
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX4_bed_capacity_nonwhite.pdf"),
+    p1$plot,
+    device = grDevices::cairo_pdf,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
+ggplot2::ggsave(
+    here::here("plots", "figSX4_bed_capacity_nonwhite.jpg"),
+    p1$plot,
+    dpi = 300,
+    width = 7,
+    height = 4,
+    scale = 1.2
+)
 
 ## Figure S1. Percentage of population 70 years or older, 2018 ----
 p1 <- plot_counties(plotting_df, "p70older") +

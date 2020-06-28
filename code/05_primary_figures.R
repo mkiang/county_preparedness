@@ -1,4 +1,4 @@
-## 05_bivariate_maps.R ----
+## 05_primary_figures.R ----
 ##
 ## Create the primary figures of the paper
 
