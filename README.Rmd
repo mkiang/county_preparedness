@@ -67,8 +67,7 @@ All data used are publicly-available. Our cleaned, harmonized, analytic data can
 - [Satchit Balsari](https://fxb.harvard.edu/people/satchit-balsari/) (![Twitter](http://i.imgur.com/wWzX9uB.png): [\@Satchit_Balsari](https://twitter.com/Satchit_Balsari))
 - [Mathew Kiang](https://mathewkiang.com) (![Github](http://i.imgur.com/9I6NRUm.png): [mkiang](https://github.com/mkiang) | ![Twitter](http://i.imgur.com/wWzX9uB.png): [\@mathewkiang](https://twitter.com/mathewkiang))
 
-## Note:
+## Notes
 
-An earlier pre-print version of this paper is available on medRxiv: [*U.S. county-level characteristics to inform equitable COVID-19 response*](https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1). 
-
-Session information is saved in `./session_info.txt`. 
+- An earlier pre-print version of this paper is available on medRxiv: [*U.S. county-level characteristics to inform equitable COVID-19 response*](https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1). 
+- Session information is saved in `./session_info.txt`. 

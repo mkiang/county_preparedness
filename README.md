@@ -134,10 +134,9 @@ data can be found in the `./data/` folder along with the corresponding
     ![Twitter](http://i.imgur.com/wWzX9uB.png):
     [@mathewkiang](https://twitter.com/mathewkiang))
 
-## Note:
+## Notes
 
-An earlier pre-print version of this paper is available on medRxiv:
-[*U.S. county-level characteristics to inform equitable COVID-19
-response*](https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1).
-
-Session information is saved in `./session_info.txt`.
+  - An earlier pre-print version of this paper is available on medRxiv:
+    [*U.S. county-level characteristics to inform equitable COVID-19
+    response*](https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1).
+  - Session information is saved in `./session_info.txt`.
