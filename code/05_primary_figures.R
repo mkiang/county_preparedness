@@ -10,8 +10,7 @@ library(here)
 source(here::here("code", "utils.R"))
 
 ## Data ----
-analytic_df <-
-    readr::read_csv(here::here("data", "analytic_data_wide.csv"))
+analytic_df <- readr::read_csv(here::here("data", "analytic_data_wide.csv"))
 plotting_df <- process_to_plotting_df(analytic_df)
 
 ## Covariates we are going to use:

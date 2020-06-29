@@ -26,59 +26,46 @@ An interactive companion app for our paper is available at
 
 ### Abstract
 
-#### Background
+**Objectives:** To illustrate the intersections of, and inter-county
+variation, in individual, household, and community factors that
+influence the impact of COVID-19 on US counties and their ability to
+respond.
 
-The spread of Coronavirus Disease 2019 (COVID-19) across the United
-States confirms that not all Americans are equally at risk of infection,
-severe disease, or mortality. A range of intersecting biological,
-demographic, and socioeconomic factors are likely to determine an
-individual’s susceptibility to COVID-19. These factors vary
-significantly across counties in the United States, and often reflect
-the structural inequities in our society. Recognizing this vast
-inter-county variation in risks will be critical to mounting an adequate
-response strategy.
+**Design:** We identified key individual, household, and community
+characteristics influencing COVID-19 risks of infection and survival,
+guided by international experiences, and consideration of
+epidemiological parameters of importance. Using publicly available data,
+we developed an open-access online tool that allows county-specific
+querying and mapping of risk factors. As an illustrative example, we
+assess the pairwise intersections of age (individual-level), poverty
+(household-level), and prevalence of group homes (community-level), in
+US counties. We also examine how these factors intersect with the
+proportion of the population that is people of color (i.e., not
+non-Hispanic white), a metric that reflects histories of US race
+relations. We defined “high” risk counties as those above the 75th
+percentile. (This threshold can be changed using the online tool.)
 
-#### Methods and Findings
+**Setting:** US counties.
 
-Using publicly available county-specific data we identified key
-biological, demographic, and socioeconomic factors influencing
-susceptibility to COVID-19, guided by international experiences and
-consideration of epidemiological parameters of importance. We created
-bivariate county-level maps to summarize examples of key relationships
-across these categories, grouping age and poverty; comorbidities and
-lack of health insurance; proximity, density and bed capacity; and race
-and ethnicity, and premature death. We have also made available an
-interactive online tool that allows public health officials to query
-risk factors most relevant to their local context.
+Participants: Analyses are based on publicly available de-identified
+county-level data from the Area Health Resources Files, American
+Community Survey, Centers for Disease Control and Prevention Atlas file,
+National Center for Health Statistic, and RWJF Community Health
+Rankings.
 
-Our data demonstrate significant inter-county variation in key
-epidemiological risk factors, with a clustering of counties in certain
-states, which will result in an increased demand on their public health
-system. While the East and West coast cities are particularly vulnerable
-owing to their densities (and travel routes), a large number of counties
-in the Southeastern states have a high proportion of at-risk
-populations, with high levels of poverty, comorbidities, and premature
-death at baseline, and low levels of health insurance coverage.
+**Results:** Our findings demonstrate significant inter-county variation
+in the distribution of individual, household, and community
+characteristics that affect risks of infection from, severity of, and
+mortality from COVID-19. About 9% of counties, affecting 10 million
+residents, are at higher risk in terms of age and prevalence of group
+quarters. About 14% of counties, affecting 31 million residents, have
+both high poverty and a high proportion of people of color.
 
-The list of variables we have examined is by no means comprehensive, and
-several of them are interrelated and magnify underlying vulnerabilities.
-The online tool allows readers to explore additional combinations of
-risk factors, set categorical thresholds for each covariate, and filter
-counties above different population thresholds.
-
-#### Conclusion
-
-COVID-19 responses and decision making in the United States remain
-decentralized. Both the federal and state governments will benefit from
+**Conclusion:** Federal and state governments will benefit from
 recognizing high intra-state, inter-county variation in population risks
-and response capacity. Many of the factors that are likely to exacerbate
-the burden of COVID-19 and the demand on healthcare systems are the
-compounded result of long-standing structural inequalities in US
-society. Strategies to protect those in the most vulnerable counties
-will require urgent measures to better support communities’ attempts at
-social distancing and to accelerate cooperation across jurisdictions to
-supply personnel and equipment to counties that will experience high
-demand.
+and response capacity. Equitable responses to the pandemic require
+strategies to protect those in counties at highest risk of adverse
+COVID-19 outcomes and their social and economic impacts.
 
 ### Issues
 
