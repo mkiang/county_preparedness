@@ -6,7 +6,7 @@ footer_tag  <- HTML(
     "Created in <a href='https://shiny.rstudio.com/'>Shiny</a>.
       Source code is available on
       <a href='https://github.com/mkiang/county_preparedness'>this
-      paper's Github repository</a>. See <a href='https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1'>our pre-print on medRxiv</a>."
+      paper's Github repository</a>. See <a href='http://dx.doi.org/10.1136/bmjopen-2020-039886'>our paper in <i>BMJ Open</i></a>."
 )
 
 ## More info
@@ -19,16 +19,16 @@ more_info <- list(
         American Community Survey, 
         <a href='https://www.cdc.gov/dhdsp/maps/atlas/index.htm'>Centers for Disease Control and Prevention Atlas file</a>, <a href='https://www.countyhealthrankings.org/'>RWJF County Health Rankings</a>, and 
         <a href='https://www.cdc.gov/nchs/nvss/bridged_race.htm'>National Center for Health Statistics population estimates</a>. <p>
-        <p>See <a href='https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1'>our paper</a> for details. Data and source code are available at the
+        <p>See <a href='http://dx.doi.org/10.1136/bmjopen-2020-039886'>our paper</a> for details. Data and source code are available at the
           <a href='https://github.com/mkiang/county_preparedness'>
           associated Github repository</a>. "
     )
 )
 
-page_title <- "U.S. county-level characteristics to inform equitable COVID-19 response"
+page_title <- "US-county level variation in intersecting individual, household and community characteristics relevant to COVID-19 and planning an equitable response: a cross-sectional analysis"
 page_subtitle   <- "Using this app"
 page_desc  <- HTML(
-    "This is a companion app for <a href='https://www.medrxiv.org/content/10.1101/2020.04.08.20058248v1'>our paper</a>. Select two covariates of interest from the dropdown boxes to the right. For each covariate, select thresholds for the moderate category. Skewed covariates can be transformed using the Axis Transformation option. <p><p>The bivariate risk map shows which counties fall into each category defined by the legend. The scatterplot shows the relationship based on the raw data with the univariate distribution shown on the margins.<p><p>Some measures are sensitive to small population sizes; therefore, we provide a filter to remove counties based on population size below."
+    "This is a companion app for <a href='http://dx.doi.org/10.1136/bmjopen-2020-039886'>our <i> BMJ Open</i> paper</a>. Select two covariates of interest from the dropdown boxes to the right. For each covariate, select thresholds for the moderate category. Skewed covariates can be transformed using the Axis Transformation option. <p><p>The bivariate risk map shows which counties fall into each category defined by the legend. The scatterplot shows the relationship based on the raw data with the univariate distribution shown on the margins.<p><p>Some measures are sensitive to small population sizes; therefore, we provide a filter to remove counties based on population size below."
 )
 
 ## Helper functions ----

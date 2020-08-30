@@ -20,27 +20,24 @@ knitr::include_graphics("./plots/fig01-1.jpg")
 
 ## Introduction 
 
-This is reproducible code for our pre-print, [*US-county level variation in intersecting individual, household, and community characteristics relevant to COVID-19 and planning an equitable response: A cross-sectional analysis*](TODO), which uses public-access county-level data to highlight characteristics of COVID-19 risk factors across different levels. We use bivariate maps to show both the intersection and spatial patterning of these risk factors. The full citation is:
+This is reproducible code for our pre-print, [*US-county level variation in intersecting individual, household, and community characteristics relevant to COVID-19 and planning an equitable response: A cross-sectional analysis*](http://dx.doi. org/10.1136/bmjopen-2020- 039886), which uses public-access county-level data to highlight characteristics of COVID-19 risk factors across different levels. We use bivariate maps to show both the intersection and spatial patterning of these risk factors. The full citation is:
 
-> TODO
+> Chin T, Kahn R, Li R, Chen JT, Krieger N, Buckee CO, Balsari S, and Kiang MV. US-county level variation in intersecting individual, household and community characteristics relevant to COVID-19 and planning an equitable response: a cross- sectional analysis. BMJ Open 2020;0:e039886. doi:10.1136/ bmjopen-2020-039886
 
 An interactive companion app for our paper is available at [https://ccdd-hsph-harvard.shinyapps.io/county-risk/](https://ccdd-hsph-harvard.shinyapps.io/county-risk/). 
 
 ### Abstract
-**Objectives:** To illustrate the intersections of, and inter-county variation, in individual, household, and community factors that influence the impact of COVID-19 on US counties and their ability to respond.
+**Objectives** To illustrate the intersections of, and intercounty variation in, individual, household and community factors that influence the impact of COVID-19 on US counties and their ability to respond.
 
-**Design:** We identified key individual, household, and community characteristics influencing COVID-19  risks of infection and survival, guided by international experiences, and consideration of epidemiological parameters of importance. Using publicly available data, we developed an open-access online tool that allows county-specific querying and mapping of risk factors. As an illustrative example, we assess the pairwise intersections of age (individual-level), poverty (household-level), and prevalence of group homes (community-level), in US counties. We also examine how these factors intersect with the proportion of the population that is people of color (i.e., not non-Hispanic white), a metric that reflects histories of US race relations. We defined “high” risk counties as those above the 75th percentile. (This threshold can be changed using the online tool.)
+**Design** We identified key individual, household and community characteristics influencing COVID-19 risks of infection and survival, guided by international experiences and consideration of epidemiological parameters of importance. Using publicly available data, we developed an open-access online tool that allows county-specific querying and mapping of risk factors. As an illustrative example, we assess the pairwise intersections of age (individual level), poverty (household level) and prevalence of group homes (community-level) in US counties. We also examine how these factors intersect with the proportion of the population that is people of colour (ie, not non-Hispanic white), a metric that reflects histories of US race relations. We defined ‘high’ risk counties as those above the 75th percentile. This threshold can be changed using the online tool.
 
-**Setting:** US counties.  
+**Setting** US counties.
 
-Participants: Analyses are based on publicly available de-identified county-level data from the Area Health Resources Files, American Community Survey, Centers for Disease Control and Prevention Atlas file, National Center for Health Statistic, and RWJF Community Health Rankings.
+**Participants** Analyses are based on publicly available county-level data from the Area Health Resources Files, American Community Survey, Centers for Disease Control and Prevention Atlas file, National Center for Health Statistic and RWJF Community Health Rankings.
 
-**Results:** 
-Our findings demonstrate significant inter-county variation in the distribution of individual, household, and community characteristics that affect risks of infection from, severity of, and mortality from COVID-19. About 9% of counties, affecting 10 million residents, are at higher risk in terms of age and prevalence of group quarters. About 14% of counties, affecting 31 million residents, have both high poverty and a high proportion of people of color. 
+**Results** Our findings demonstrate significant intercounty variation in the distribution of individual, household and community characteristics that affect risks of infection, severe disease or mortality from COVID-19. About 9% of counties, affecting 10 million residents, are in higher risk categories for both age and group quarters. About 14% of counties, affecting 31 million residents, have both high levels of poverty and a high proportion of people of colour.
 
-**Conclusion:** Federal and state governments will benefit from recognizing high intra-state, inter-county variation in population risks and response capacity. Equitable responses to the pandemic require strategies to protect those in counties at highest risk of adverse COVID-19 outcomes and their social and economic impacts. 
-
-
+**Conclusion** Federal and state governments will benefit from recognising high intrastate, intercounty variation in population risks and response capacity. Equitable responses to the pandemic require strategies to protect those in counties at highest risk of adverse COVID-19 outcomes and their social and economic impacts.
 
 ### Issues
 
